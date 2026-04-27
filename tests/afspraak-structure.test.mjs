@@ -83,6 +83,16 @@ test("header logo appears without a surrounding card", async () => {
   assert.match(mobileMarkBlock, /\.mark\s*\{\s*padding:\s*0;\s*\}/);
 });
 
+test("footer logo card closely fits the transparent logo", async () => {
+  const html = await readFile(htmlPath, "utf8");
+  const footerBrandBlock = html.match(/\.footer-brand\s*\{[^}]+\}/)?.[0] ?? "";
+
+  assert.match(footerBrandBlock, /display:\s*inline-flex;/);
+  assert.match(footerBrandBlock, /width:\s*fit-content;/);
+  assert.match(footerBrandBlock, /padding:\s*6px 8px;/);
+  assert.doesNotMatch(footerBrandBlock, /width:\s*min\(260px,\s*100%\);/);
+});
+
 test("Bowlby One display type uses a smaller scale across the page", async () => {
   const html = await readFile(htmlPath, "utf8");
 
@@ -138,6 +148,15 @@ test("contact address card includes a bottom-aligned Google map", async () => {
   assert.match(html, /<article class="info-card dark card contact-address-card">/);
   assert.match(html, /\.location-map\s*\{[\s\S]*?margin-top:\s*auto;[\s\S]*?overflow:\s*hidden;/);
   assert.match(html, /<div class="location-map" aria-label="Google Maps location">[\s\S]*?<iframe[\s\S]*?title="Google Maps location for BVBA Dedecker-Weyers"[\s\S]*?src="https:\/\/www\.google\.com\/maps\?q=Veldstraat%2024%2C%201800%20Koningslo-Vilvoorde&output=embed"[\s\S]*?loading="lazy"/);
+});
+
+test("footer links to the published privacy policy", async () => {
+  const html = await readFile(htmlPath, "utf8");
+
+  assert.match(
+    html,
+    /<a href="https:\/\/www\.freeprivacypolicy\.com\/live\/c68a49fd-b666-49a4-a137-af7cd94de3bb" target="_blank" rel="noopener" data-i18n="footer\.privacyPolicy">/
+  );
 });
 
 test("old blue about section has been removed", async () => {
