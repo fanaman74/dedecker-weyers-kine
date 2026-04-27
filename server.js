@@ -149,6 +149,7 @@ export function createApp({ env = { ...process.env, ...loadEnv() }, fetchImpl = 
   return {
     async fetch(request) {
       const url = new URL(request.url);
+      if (url.pathname === "/health") return json({ ok: true });
       if (url.pathname === "/api/contact") return handleContact(request, env, fetchImpl);
       return serveStatic(url.pathname);
     }

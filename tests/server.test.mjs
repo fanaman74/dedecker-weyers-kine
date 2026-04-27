@@ -70,3 +70,12 @@ test("POST /api/contact fails safely when Resend is not configured", async () =>
   assert.equal(response.status, 500);
   assert.deepEqual(await response.json(), { ok: false, error: "Email service is not configured." });
 });
+
+test("GET /health returns ok for Railway health checks", async () => {
+  const app = createApp({ env: {}, fetchImpl: async () => new Response("{}", { status: 200 }) });
+
+  const response = await app.fetch(new Request("http://localhost/health"));
+
+  assert.equal(response.status, 200);
+  assert.deepEqual(await response.json(), { ok: true });
+});
