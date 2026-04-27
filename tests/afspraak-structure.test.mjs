@@ -70,6 +70,15 @@ test("hero headline uses a restrained responsive font scale", async () => {
   assert.match(html, /@media \(max-width: 640px\)[\s\S]*?h1\s*\{\s*font-size:\s*clamp\(38px,\s*12vw,\s*58px\);/);
 });
 
+test("hero video uses a definite responsive viewport box", async () => {
+  const html = await readFile(htmlPath, "utf8");
+
+  assert.match(html, /\.hero\s*\{[\s\S]*?min-height:\s*100svh;[\s\S]*?min-height:\s*100dvh;/);
+  assert.match(html, /\.hero-video,\s*\.hero-poster\s*\{[\s\S]*?width:\s*100vw;[\s\S]*?height:\s*100%;[\s\S]*?min-height:\s*100svh;[\s\S]*?min-height:\s*100dvh;[\s\S]*?object-fit:\s*cover;/);
+  assert.match(html, /\.hero-inner\s*\{[\s\S]*?min-height:\s*100svh;[\s\S]*?min-height:\s*100dvh;/);
+  assert.match(html, /@media \(max-width: 640px\)[\s\S]*?\.hero-video,\s*\.hero-poster\s*\{[\s\S]*?min-height:\s*100dvh;/);
+});
+
 test("header logo appears without a surrounding card", async () => {
   const html = await readFile(htmlPath, "utf8");
   const markBlock = html.match(/\.mark\s*\{[^}]+\}/)?.[0] ?? "";

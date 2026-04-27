@@ -175,6 +175,7 @@
     .hero {
       position: relative;
       min-height: 100svh;
+      min-height: 100dvh;
       overflow: hidden;
       color: var(--white);
       background: #101510;
@@ -183,13 +184,16 @@
     .hero-poster {
       position: absolute;
       inset: 0;
-      width: 100%;
+      width: 100vw;
+      max-width: none;
       height: 100%;
+      min-height: 100svh;
+      min-height: 100dvh;
       object-fit: cover;
     }
     .hero-video {
       z-index: 0;
-      object-position: 100% center;
+      object-position: 70% center;
       filter: contrast(1.02) saturate(.98) brightness(.75);
     }
     .hero-poster {
@@ -221,6 +225,7 @@
       display: grid;
       grid-template-rows: auto 1fr auto;
       min-height: 100svh;
+      min-height: 100dvh;
       max-width: 1320px;
       margin: 0 auto;
       padding: 122px 40px 56px;
@@ -1194,7 +1199,11 @@
       .team-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
     @media (max-width: 640px) {
-      .hero-video { object-position: 38% center; }
+      .hero-video,
+      .hero-poster {
+        min-height: 100dvh;
+        object-position: 52% center;
+      }
       .nav {
         flex-wrap: wrap;
         row-gap: 10px;
