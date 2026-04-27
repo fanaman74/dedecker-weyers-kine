@@ -70,6 +70,16 @@ function escapeHtml(value) {
     .replaceAll("'", "&#039;");
 }
 
+function isValidEmailAddress(value) {
+  return /^[^\s@<>]+@[^\s@<>]+\.[^\s@<>]+$/.test(String(value || "").trim());
+}
+
+function isValidSenderAddress(value) {
+  const sender = String(value || "").trim();
+  const nameAddressMatch = sender.match(/^.+\s<([^<>]+)>$/);
+  return isValidEmailAddress(nameAddressMatch?.[1] || sender);
+}
+
 function buildEmailHtml(data) {
   return `
     <h1>Nieuwe contactvraag</h1>
@@ -89,6 +99,9 @@ async function sendWithResend({ env, fetchImpl, data }) {
 
   if (!apiKey || !from || !to) {
     return { ok: false, status: 500, error: "Email service is not configured." };
+  }
+  if (!isValidSenderAddress(from)) {
+    return { ok: false, status: 500, error: "Email sender address is not configured correctly." };
   }
 
   const response = await fetchImpl("https://api.resend.com/emails", {

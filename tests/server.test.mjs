@@ -71,6 +71,33 @@ test("POST /api/contact fails safely when Resend is not configured", async () =>
   assert.deepEqual(await response.json(), { ok: false, error: "Email service is not configured." });
 });
 
+test("POST /api/contact rejects malformed Resend sender configuration", async () => {
+  let calls = 0;
+  const app = createApp({
+    env: {
+      RESEND_API_KEY: "re_test_key",
+      RESEND_FROM: "fredanaman\"gmail.com",
+      CONTACT_TO: "eway@skynet.be"
+    },
+    fetchImpl: async () => {
+      calls += 1;
+      return new Response("{}", { status: 200 });
+    }
+  });
+
+  const response = await app.fetch(
+    new Request("http://localhost/api/contact", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(validPayload)
+    })
+  );
+
+  assert.equal(response.status, 500);
+  assert.deepEqual(await response.json(), { ok: false, error: "Email sender address is not configured correctly." });
+  assert.equal(calls, 0);
+});
+
 test("GET /health returns ok for Railway health checks", async () => {
   const app = createApp({ env: {}, fetchImpl: async () => new Response("{}", { status: 200 }) });
 

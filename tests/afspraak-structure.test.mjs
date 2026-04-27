@@ -116,6 +116,30 @@ test("booking cards form three square cards above a horizontal checklist", async
   assert.match(html, /@media \(max-width: 1080px\)[\s\S]*?\.checklist\s*\{[\s\S]*?grid-template-columns:\s*1fr;/);
 });
 
+test("online booking TODO appears above the bottom-aligned button", async () => {
+  const html = await readFile(htmlPath, "utf8");
+
+  assert.match(html, /\.todo \+ \.button-row\s*\{[\s\S]*?margin-top:\s*auto;/);
+  assert.match(
+    html,
+    /<h3 data-i18n="booking\.onlineTitle">[\s\S]*?<p data-i18n="booking\.onlineCopy">[\s\S]*?<\/p>\s*<div class="todo" data-i18n="booking\.todo">[\s\S]*?<\/div>\s*<div class="button-row"><a class="btn" href="#" aria-disabled="true" data-i18n="booking\.unavailable">/
+  );
+});
+
+test("team note text is centered in the dark callout", async () => {
+  const html = await readFile(htmlPath, "utf8");
+
+  assert.match(html, /\.team-note p\s*\{[\s\S]*?margin:\s*0 auto;[\s\S]*?text-align:\s*center;/);
+});
+
+test("contact address card includes a bottom-aligned Google map", async () => {
+  const html = await readFile(htmlPath, "utf8");
+
+  assert.match(html, /<article class="info-card dark card contact-address-card">/);
+  assert.match(html, /\.location-map\s*\{[\s\S]*?margin-top:\s*auto;[\s\S]*?overflow:\s*hidden;/);
+  assert.match(html, /<div class="location-map" aria-label="Google Maps location">[\s\S]*?<iframe[\s\S]*?title="Google Maps location for BVBA Dedecker-Weyers"[\s\S]*?src="https:\/\/www\.google\.com\/maps\?q=Veldstraat%2024%2C%201800%20Koningslo-Vilvoorde&output=embed"[\s\S]*?loading="lazy"/);
+});
+
 test("old blue about section has been removed", async () => {
   const html = await readFile(htmlPath, "utf8");
 

@@ -671,6 +671,25 @@
       font-weight: 400;
       line-height: 1.1;
     }
+    .contact-address-card {
+      display: flex;
+      flex-direction: column;
+    }
+    .location-map {
+      min-height: 260px;
+      margin-top: auto;
+      overflow: hidden;
+      border: 1px solid rgba(244, 239, 231, .18);
+      border-radius: 18px;
+      background: rgba(244, 239, 231, .08);
+    }
+    .location-map iframe {
+      width: 100%;
+      height: 100%;
+      min-height: 260px;
+      border: 0;
+      filter: saturate(.9) contrast(.95);
+    }
     .hours-row {
       display: flex;
       justify-content: space-between;
@@ -856,6 +875,9 @@
       color: rgba(244, 239, 231, .74);
       font-size: 12px;
     }
+    .todo + .button-row {
+      margin-top: auto;
+    }
 
     .booking-side {
       display: grid;
@@ -1020,9 +1042,10 @@
     }
     .team-note p {
       max-width: 70ch;
-      margin: 0;
+      margin: 0 auto;
       color: rgba(244, 239, 231, .82);
       font-size: 16px;
+      text-align: center;
     }
 
     .contact-wrap {
@@ -1464,8 +1487,8 @@
             <span class="kicker" data-i18n="booking.onlineKicker">Online</span>
             <h3 data-i18n="booking.onlineTitle">Reservatiesysteem</h3>
             <p data-i18n="booking.onlineCopy">Online boeken komt hier zodra de praktijk een reservatieprovider bevestigt.</p>
-            <div class="button-row"><a class="btn" href="#" aria-disabled="true" data-i18n="booking.unavailable">Nog niet beschikbaar</a></div>
             <div class="todo" data-i18n="booking.todo">TODO: koppel hier Progenda, Rosa, Doctena, Doctoranytime of de gekozen praktijktool.</div>
+            <div class="button-row"><a class="btn" href="#" aria-disabled="true" data-i18n="booking.unavailable">Nog niet beschikbaar</a></div>
           </article>
           <article class="method-card card">
             <span class="kicker" data-i18n="booking.notUrgent">Niet urgent</span>
@@ -1576,11 +1599,14 @@
       </div>
 
       <div class="contact-wrap">
-        <article class="info-card dark card">
+        <article class="info-card dark card contact-address-card">
           <span class="kicker" data-i18n="contact.address">Adres</span>
           <h3>BVBA Dedecker-Weyers</h3>
           <p>Veldstraat 24<br>1800 Koningslo-Vilvoorde</p>
           <div class="quick-call"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg></span><span><small data-i18n="cards.emailLabel">Email</small><strong style="font-size:20px">eway@skynet.be</strong></span></div>
+          <div class="location-map" aria-label="Google Maps location">
+            <iframe title="Google Maps location for BVBA Dedecker-Weyers" src="https://www.google.com/maps?q=Veldstraat%2024%2C%201800%20Koningslo-Vilvoorde&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
         </article>
 
         <form class="contact-form card" id="contactForm">
