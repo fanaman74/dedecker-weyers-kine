@@ -79,12 +79,10 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 164px;
-      min-height: 58px;
-      padding: 6px 12px;
-      border-radius: 22px;
-      background: var(--paper);
-      box-shadow: 0 18px 38px -30px rgba(0, 0, 0, .58);
+      width: auto;
+      padding: 0;
+      background: transparent;
+      box-shadow: none;
     }
     .brand-logo {
       width: auto;
@@ -258,7 +256,7 @@
       margin: 0;
       font-family: var(--serif);
       font-weight: 400;
-      font-size: clamp(48px, 7vw, 112px);
+      font-size: clamp(42px, 6vw, 96px);
       line-height: .9;
       letter-spacing: 0;
       text-wrap: balance;
@@ -323,7 +321,7 @@
     .hero-stat strong {
       display: block;
       font-family: var(--serif);
-      font-size: 56px;
+      font-size: 44px;
       font-weight: 400;
       line-height: 1;
     }
@@ -374,7 +372,7 @@
       white-space: nowrap;
       animation: marquee 42s linear infinite;
       font-family: var(--serif);
-      font-size: 23px;
+      font-size: 18px;
     }
     .marquee-track span { display: inline-flex; align-items: center; gap: 52px; }
     .marquee-track em { color: var(--clay); font-style: italic; }
@@ -407,7 +405,7 @@
       max-width: 690px;
       margin: 0;
       font-family: var(--serif);
-      font-size: clamp(46px, 4.2vw, 60px);
+      font-size: clamp(38px, 3.4vw, 50px);
       font-weight: 400;
       line-height: .98;
       letter-spacing: 0;
@@ -437,7 +435,7 @@
       display: block;
       color: var(--moss);
       font-family: var(--serif);
-      font-size: 38px;
+      font-size: 32px;
       font-weight: 400;
       line-height: 1;
     }
@@ -550,7 +548,7 @@
       margin: 0;
       color: rgba(244, 239, 231, .9);
       font-family: var(--serif);
-      font-size: 23px;
+      font-size: 20px;
       font-style: italic;
       line-height: 1.22;
     }
@@ -622,7 +620,7 @@
     .side-title {
       margin: 0 0 14px;
       font-family: var(--serif);
-      font-size: 29px;
+      font-size: 24px;
       font-weight: 400;
       line-height: 1.08;
     }
@@ -669,7 +667,7 @@
     .quick-call strong {
       display: block;
       font-family: var(--serif);
-      font-size: 23px;
+      font-size: 19px;
       font-weight: 400;
       line-height: 1.1;
     }
@@ -690,7 +688,7 @@
     }
     .hours-row span:last-child {
       font-family: var(--serif);
-      font-size: 20px;
+      font-size: 17px;
     }
 
     .section-head {
@@ -705,7 +703,7 @@
     .section-head h2 {
       margin: 0;
       font-family: var(--serif);
-      font-size: clamp(42px, 5vw, 76px);
+      font-size: clamp(36px, 4vw, 60px);
       font-weight: 400;
       line-height: .98;
       letter-spacing: 0;
@@ -754,7 +752,7 @@
     .treat-card h3 {
       margin: 0 0 10px;
       font-family: var(--serif);
-      font-size: 28px;
+      font-size: 20px;
       font-weight: 400;
       line-height: 1.08;
     }
@@ -787,8 +785,8 @@
     }
     .booking-panel {
       display: grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 24px;
+      grid-template-columns: 1fr;
+      gap: 18px;
     }
     .methods {
       display: grid;
@@ -798,6 +796,7 @@
     .method-card {
       display: flex;
       flex-direction: column;
+      aspect-ratio: 1 / 1;
       min-height: 280px;
       padding: 26px;
     }
@@ -812,7 +811,7 @@
     .contact-form h3 {
       margin: 0 0 12px;
       font-family: var(--serif);
-      font-size: 29px;
+      font-size: 24px;
       font-weight: 400;
       line-height: 1.08;
     }
@@ -860,17 +859,25 @@
 
     .booking-side {
       display: grid;
+      grid-column: 1 / -1;
       gap: 18px;
     }
     .checklist,
     .contact-form {
       padding: 28px;
     }
+    .checklist {
+      display: grid;
+      grid-template-columns: minmax(220px, .35fr) 1fr;
+      gap: 28px;
+      align-items: start;
+    }
     .checklist ul {
-      margin: 18px 0 0;
+      margin: 0;
       padding: 0;
       list-style: none;
       display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 12px;
     }
     .checklist li {
@@ -911,7 +918,7 @@
     .visit-band h2 {
       margin: 0;
       font-family: var(--serif);
-      font-size: clamp(36px, 4vw, 58px);
+      font-size: clamp(30px, 3.2vw, 46px);
       font-weight: 400;
       line-height: 1;
     }
@@ -955,7 +962,7 @@
     .team-card h3 {
       margin: 0;
       font-family: var(--serif);
-      font-size: 34px;
+      font-size: 28px;
       font-weight: 400;
       line-height: 1.02;
     }
@@ -1158,6 +1165,8 @@
       .treat-grid {
         grid-template-columns: 1fr;
       }
+      .checklist { grid-template-columns: 1fr; }
+      .checklist ul { grid-template-columns: 1fr; }
       .team-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
     @media (max-width: 640px) {
@@ -1167,7 +1176,7 @@
         row-gap: 10px;
         padding: 14px 18px;
       }
-      .mark { width: 142px; min-height: 52px; padding: 5px 10px; border-radius: 20px; }
+      .mark { padding: 0; }
       .brand-logo { height: 42px; }
       .nav-tools {
         order: 3;
@@ -1181,7 +1190,7 @@
       .hero-inner { padding: 96px 22px 48px; }
       .hero-meta { gap: 22px; }
       .scroll-hint { display: none; }
-      h1 { font-size: clamp(44px, 15vw, 68px); }
+      h1 { font-size: clamp(38px, 12vw, 58px); }
       .section,
       .practice-intro,
       .info-row,
@@ -1200,13 +1209,13 @@
         padding-top: 58px;
         padding-bottom: 18px;
       }
-      .practice-copy h2 { font-size: clamp(42px, 13vw, 56px); }
+      .practice-copy h2 { font-size: clamp(36px, 11vw, 48px); }
       .practice-copy p { font-size: 16px; }
       .practice-stats {
         gap: 16px;
         margin-top: 32px;
       }
-      .practice-stat strong { font-size: 34px; }
+      .practice-stat strong { font-size: 30px; }
       .practice-stat small { font-size: 10px; }
       .practice-visual {
         min-height: 470px;
@@ -1224,7 +1233,7 @@
         right: 28px;
         bottom: 68px;
         left: 28px;
-        font-size: 21px;
+        font-size: 18px;
       }
       .practice-visual figcaption {
         left: 28px;

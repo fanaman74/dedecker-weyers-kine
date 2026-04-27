@@ -66,8 +66,54 @@ test("hero appointment button appears directly below the appointment text", asyn
 test("hero headline uses a restrained responsive font scale", async () => {
   const html = await readFile(htmlPath, "utf8");
 
-  assert.match(html, /h1\s*\{[\s\S]*?font-size:\s*clamp\(48px,\s*7vw,\s*112px\);/);
-  assert.match(html, /@media \(max-width: 640px\)[\s\S]*?h1\s*\{\s*font-size:\s*clamp\(44px,\s*15vw,\s*68px\);/);
+  assert.match(html, /h1\s*\{[\s\S]*?font-size:\s*clamp\(42px,\s*6vw,\s*96px\);/);
+  assert.match(html, /@media \(max-width: 640px\)[\s\S]*?h1\s*\{\s*font-size:\s*clamp\(38px,\s*12vw,\s*58px\);/);
+});
+
+test("header logo appears without a surrounding card", async () => {
+  const html = await readFile(htmlPath, "utf8");
+  const markBlock = html.match(/\.mark\s*\{[^}]+\}/)?.[0] ?? "";
+  const mobileMarkBlock = html.match(/@media \(max-width: 640px\)[\s\S]*?\.mark\s*\{[^}]+\}/)?.[0] ?? "";
+
+  assert.match(markBlock, /width:\s*auto;/);
+  assert.match(markBlock, /padding:\s*0;/);
+  assert.match(markBlock, /background:\s*transparent;/);
+  assert.match(markBlock, /box-shadow:\s*none;/);
+  assert.doesNotMatch(markBlock, /border-radius:|min-width:|min-height:/);
+  assert.match(mobileMarkBlock, /\.mark\s*\{\s*padding:\s*0;\s*\}/);
+});
+
+test("Bowlby One display type uses a smaller scale across the page", async () => {
+  const html = await readFile(htmlPath, "utf8");
+
+  assert.match(html, /\.hero-stat strong\s*\{[\s\S]*?font-size:\s*44px;/);
+  assert.match(html, /\.marquee-track\s*\{[\s\S]*?font-size:\s*18px;/);
+  assert.match(html, /\.practice-copy h2\s*\{[\s\S]*?font-size:\s*clamp\(38px,\s*3\.4vw,\s*50px\);/);
+  assert.match(html, /\.practice-stat strong\s*\{[\s\S]*?font-size:\s*32px;/);
+  assert.match(html, /\.practice-quote\s*\{[\s\S]*?font-size:\s*20px;/);
+  assert.match(html, /\.info-card h2,\s*\.info-card h3,\s*\.side-title\s*\{[\s\S]*?font-size:\s*24px;/);
+  assert.match(html, /\.quick-call strong\s*\{[\s\S]*?font-size:\s*19px;/);
+  assert.match(html, /\.hours-row span:last-child\s*\{[\s\S]*?font-size:\s*17px;/);
+  assert.match(html, /\.section-head h2\s*\{[\s\S]*?font-size:\s*clamp\(36px,\s*4vw,\s*60px\);/);
+  assert.match(html, /\.treat-card h3\s*\{[\s\S]*?font-size:\s*20px;/);
+  assert.match(html, /\.method-card h3,\s*\.checklist h3,\s*\.contact-form h3\s*\{[\s\S]*?font-size:\s*24px;/);
+  assert.match(html, /\.visit-band h2\s*\{[\s\S]*?font-size:\s*clamp\(30px,\s*3\.2vw,\s*46px\);/);
+  assert.match(html, /\.team-card h3\s*\{[\s\S]*?font-size:\s*28px;/);
+  assert.match(html, /@media \(max-width: 640px\)[\s\S]*?\.practice-copy h2\s*\{\s*font-size:\s*clamp\(36px,\s*11vw,\s*48px\);/);
+  assert.match(html, /@media \(max-width: 640px\)[\s\S]*?\.practice-stat strong\s*\{\s*font-size:\s*30px;\s*\}/);
+  assert.match(html, /@media \(max-width: 640px\)[\s\S]*?\.practice-quote\s*\{[\s\S]*?font-size:\s*18px;/);
+});
+
+test("booking cards form three square cards above a horizontal checklist", async () => {
+  const html = await readFile(htmlPath, "utf8");
+
+  assert.match(html, /\.booking-panel\s*\{[\s\S]*?grid-template-columns:\s*1fr;/);
+  assert.match(html, /\.methods\s*\{[\s\S]*?grid-template-columns:\s*repeat\(3,\s*minmax\(0,\s*1fr\)\);/);
+  assert.match(html, /\.method-card\s*\{[\s\S]*?aspect-ratio:\s*1 \/ 1;/);
+  assert.match(html, /\.booking-side\s*\{[\s\S]*?grid-column:\s*1 \/ -1;/);
+  assert.match(html, /\.checklist,\s*\.contact-form\s*\{[\s\S]*?padding:\s*28px;/);
+  assert.match(html, /\.checklist\s*\{[\s\S]*?display:\s*grid;[\s\S]*?grid-template-columns:\s*minmax\(220px,\s*\.35fr\)\s*1fr;/);
+  assert.match(html, /@media \(max-width: 1080px\)[\s\S]*?\.checklist\s*\{[\s\S]*?grid-template-columns:\s*1fr;/);
 });
 
 test("old blue about section has been removed", async () => {
