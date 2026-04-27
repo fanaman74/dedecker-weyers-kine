@@ -63,6 +63,13 @@ test("hero appointment button appears directly below the appointment text", asyn
   );
 });
 
+test("hero headline uses a restrained responsive font scale", async () => {
+  const html = await readFile(htmlPath, "utf8");
+
+  assert.match(html, /h1\s*\{[\s\S]*?font-size:\s*clamp\(48px,\s*7vw,\s*112px\);/);
+  assert.match(html, /@media \(max-width: 640px\)[\s\S]*?h1\s*\{\s*font-size:\s*clamp\(44px,\s*15vw,\s*68px\);/);
+});
+
 test("old blue about section has been removed", async () => {
   const html = await readFile(htmlPath, "utf8");
 
