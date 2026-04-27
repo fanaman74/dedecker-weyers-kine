@@ -1,0 +1,6 @@
+.env
+node_modules/
+test-results/
+screenshots/
+.firecrawl/
+.DS_Store

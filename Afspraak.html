@@ -1,0 +1,2230 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Maak een afspraak voor kinesitherapie in Koningslo-Vilvoorde. Behandelingen en huisbezoeken enkel op afspraak." />
+  <title>Afspraak maken | Kinesitherapie Dedecker-Weyers</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Madimi+One&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #0f1410;
+      --ink-soft: #2e352f;
+      --paper: #f4efe7;
+      --paper-2: #ebe3d5;
+      --paper-3: #ddd1bd;
+      --moss: #2c4a3a;
+      --moss-2: #3f6650;
+      --clay: #c8674a;
+      --clay-dark: #9e4630;
+      --white: #ffffff;
+      --rule: rgba(15, 20, 16, .14);
+      --shadow: 0 30px 80px -45px rgba(15, 20, 16, .34);
+      --serif: "Madimi One", Georgia, serif;
+      --sans: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: var(--sans);
+      color: var(--ink);
+      background: var(--paper);
+      font-size: 16px;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    button, input, textarea, select { font: inherit; }
+    img, video, svg { display: block; max-width: 100%; }
+    ::selection { background: var(--moss); color: var(--paper); }
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .nav {
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 50;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 22px 32px;
+      color: var(--white);
+      border-bottom: 1px solid transparent;
+      transition: background .3s ease, color .3s ease, padding .25s ease, border-color .3s ease;
+    }
+    .nav.scrolled {
+      padding-block: 14px;
+      color: var(--ink);
+      background: rgba(244, 239, 231, .92);
+      border-bottom-color: var(--rule);
+      backdrop-filter: blur(14px) saturate(130%);
+    }
+    .nav.scrolled .nav-call { background: var(--white); }
+    .mark {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 164px;
+      min-height: 58px;
+      padding: 6px 12px;
+      border-radius: 22px;
+      background: var(--paper);
+      box-shadow: 0 18px 38px -30px rgba(0, 0, 0, .58);
+    }
+    .brand-logo {
+      width: auto;
+      height: 46px;
+      max-width: 100%;
+      object-fit: contain;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .nav-links a {
+      display: inline-flex;
+      min-height: 42px;
+      align-items: center;
+      padding: 8px 14px;
+      border-radius: 999px;
+      transition: background .18s ease;
+    }
+    .nav-links a:hover { background: rgba(255, 255, 255, .15); }
+    .nav.scrolled .nav-links a:hover { background: rgba(15, 20, 16, .07); }
+    .nav-links .active a { background: var(--clay); color: var(--white); }
+    .nav-call {
+      display: inline-flex;
+      min-height: 44px;
+      align-items: center;
+      gap: 9px;
+      padding: 10px 18px;
+      border-radius: 999px;
+      background: var(--white);
+      color: var(--ink);
+      font-size: 13px;
+      font-weight: 800;
+      box-shadow: 0 15px 40px -24px rgba(0, 0, 0, .5);
+      transition: transform .18s ease, background .18s ease;
+      white-space: nowrap;
+    }
+    .nav-call:hover { transform: translateY(-1px); background: var(--paper); }
+    .nav-call svg { width: 16px; height: 16px; }
+    .nav-tools {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .language-switcher {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      padding: 4px;
+      border: 1px solid rgba(255, 255, 255, .24);
+      border-radius: 999px;
+      background: rgba(0, 0, 0, .18);
+      backdrop-filter: blur(10px);
+    }
+    .nav.scrolled .language-switcher {
+      border-color: rgba(15, 20, 16, .12);
+      background: rgba(255, 255, 255, .64);
+    }
+    .lang-option {
+      display: inline-grid;
+      place-items: center;
+      min-width: 32px;
+      min-height: 30px;
+      padding: 5px 8px;
+      border: 0;
+      border-radius: 999px;
+      color: currentColor;
+      background: transparent;
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: .08em;
+      cursor: pointer;
+      transition: background .18s ease, color .18s ease;
+    }
+    .lang-option[aria-pressed="true"] {
+      color: var(--ink);
+      background: var(--white);
+    }
+    .nav.scrolled .lang-option[aria-pressed="true"] {
+      color: var(--white);
+      background: var(--moss);
+    }
+
+    .hero {
+      position: relative;
+      min-height: 100svh;
+      overflow: hidden;
+      color: var(--white);
+      background: #101510;
+    }
+    .hero-video,
+    .hero-poster {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .hero-video {
+      z-index: 0;
+      object-position: 100% center;
+      filter: contrast(1.02) saturate(.98) brightness(.75);
+    }
+    .hero-poster {
+      z-index: -1;
+      background:
+        radial-gradient(55% 52% at 62% 42%, rgba(244, 239, 231, .46), transparent 58%),
+        linear-gradient(135deg, #102018 0%, #2c4a3a 48%, #6a382b 100%);
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background:
+        linear-gradient(180deg, rgba(8, 10, 8, .64), rgba(8, 10, 8, .12) 38%, rgba(8, 10, 8, .82)),
+        radial-gradient(60% 50% at 84% 32%, rgba(200, 103, 74, .24), transparent 66%);
+    }
+    .hero-grain {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      pointer-events: none;
+      opacity: .08;
+      mix-blend-mode: overlay;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
+    }
+    .hero-inner {
+      position: relative;
+      z-index: 3;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      min-height: 100svh;
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 122px 40px 56px;
+      gap: 28px;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      max-width: max-content;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, .86);
+    }
+    .eyebrow::before {
+      content: "";
+      width: 36px;
+      height: 1px;
+      background: rgba(255, 255, 255, .65);
+    }
+    .eyebrow .pill {
+      padding: 5px 10px;
+      border: 1px solid rgba(255, 255, 255, .2);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .1);
+      letter-spacing: .08em;
+    }
+    h1 {
+      align-self: end;
+      max-width: 980px;
+      margin: 0;
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: clamp(58px, 10vw, 150px);
+      line-height: .9;
+      letter-spacing: 0;
+      text-wrap: balance;
+    }
+    .hero-title-kicker {
+      display: block;
+      margin-bottom: 24px;
+      font-family: var(--sans);
+      font-size: .16em;
+      font-weight: 800;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, .7);
+    }
+    .hero-title-text { display: block; }
+    h1 em { color: var(--clay); font-style: italic; }
+    .hero-meta {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto auto;
+      gap: 32px;
+      align-items: end;
+      padding-top: 28px;
+      border-top: 1px solid rgba(255, 255, 255, .2);
+    }
+    .hero-copy {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 18px;
+    }
+    .hero-meta p {
+      max-width: 48ch;
+      margin: 0;
+      color: rgba(255, 255, 255, .88);
+    }
+    .hero-appointment-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 11px 26px;
+      border: 1px solid rgba(255, 255, 255, .34);
+      border-radius: 999px;
+      background: rgba(0, 0, 0, .22);
+      color: rgba(255, 255, 255, .78);
+      backdrop-filter: blur(10px);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      transition: transform .18s ease, border-color .18s ease, color .18s ease;
+    }
+    .hero-appointment-link:hover {
+      transform: translateY(-1px);
+      border-color: rgba(255, 255, 255, .58);
+      color: var(--white);
+    }
+    .hero-stat {
+      text-align: right;
+      min-width: 148px;
+    }
+    .hero-stat strong {
+      display: block;
+      font-family: var(--serif);
+      font-size: 56px;
+      font-weight: 400;
+      line-height: 1;
+    }
+    .meta-label {
+      display: block;
+      margin-bottom: 7px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, .64);
+    }
+    .scroll-hint {
+      border: 1px solid rgba(255, 255, 255, .28);
+      background: rgba(0, 0, 0, .25);
+      color: var(--white);
+      backdrop-filter: blur(10px);
+    }
+    .scroll-hint {
+      position: absolute;
+      z-index: 4;
+      left: 40px;
+      bottom: 36px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      min-height: 42px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, .74);
+    }
+
+    .marquee {
+      overflow: hidden;
+      padding: 15px 0;
+      color: var(--paper);
+      background: var(--ink);
+      border-block: 1px solid rgba(255, 255, 255, .08);
+    }
+    .marquee-track {
+      display: flex;
+      gap: 52px;
+      width: max-content;
+      white-space: nowrap;
+      animation: marquee 42s linear infinite;
+      font-family: var(--serif);
+      font-size: 23px;
+    }
+    .marquee-track span { display: inline-flex; align-items: center; gap: 52px; }
+    .marquee-track em { color: var(--clay); font-style: italic; }
+    .sep { color: rgba(244, 239, 231, .38); font-family: var(--sans); font-size: 12px; }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    .section,
+    .practice-intro,
+    .info-row,
+    .treatments,
+    .team,
+    .booking,
+    .visit-section {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding-inline: 40px;
+    }
+    .practice-intro {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(360px, .88fr);
+      gap: clamp(38px, 6vw, 76px);
+      align-items: center;
+      padding-top: 92px;
+      padding-bottom: 28px;
+    }
+    .practice-copy h2 {
+      max-width: 690px;
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(46px, 4.2vw, 60px);
+      font-weight: 400;
+      line-height: .98;
+      letter-spacing: 0;
+    }
+    .practice-copy h2 em {
+      color: var(--clay);
+      font-style: italic;
+    }
+    .practice-copy p {
+      max-width: 640px;
+      margin: 28px 0 0;
+      color: var(--ink-soft);
+      font-size: 17px;
+      line-height: 1.65;
+    }
+    .practice-copy strong { color: var(--ink); font-weight: 800; }
+    .practice-stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 28px;
+      max-width: 640px;
+      margin-top: 42px;
+      padding-top: 26px;
+      border-top: 1px solid var(--rule);
+    }
+    .practice-stat strong {
+      display: block;
+      color: var(--moss);
+      font-family: var(--serif);
+      font-size: 38px;
+      font-weight: 400;
+      line-height: 1;
+    }
+    .practice-stat strong span { color: var(--clay); }
+    .practice-stat small {
+      display: block;
+      margin-top: 10px;
+      color: rgba(15, 20, 16, .64);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .practice-visual {
+      position: relative;
+      min-height: 560px;
+      margin: 0;
+      overflow: hidden;
+      border-radius: 28px;
+      color: var(--paper);
+      background:
+        radial-gradient(38% 36% at 62% 32%, rgba(244, 239, 231, .18), transparent 68%),
+        linear-gradient(145deg, #2d5843 0%, #244734 52%, #10251b 100%);
+      box-shadow: 0 30px 80px -45px rgba(15, 20, 16, .46);
+    }
+    .practice-visual::before,
+    .practice-visual::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      width: 100%;
+      pointer-events: none;
+    }
+    .practice-visual::before {
+      top: 0;
+      height: 118px;
+      border-radius: 0 0 50% 50%;
+      background: rgba(244, 239, 231, .1);
+      transform: translateY(-34px) scaleX(1.12);
+    }
+    .practice-visual::after {
+      right: 28px;
+      bottom: 26px;
+      left: 28px;
+      width: auto;
+      height: 54px;
+      border-radius: 50%;
+      background: rgba(6, 17, 13, .36);
+    }
+    .practice-badge {
+      position: absolute;
+      top: 28px;
+      left: 28px;
+      z-index: 3;
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      min-height: 38px;
+      padding: 8px 16px;
+      border-radius: 999px;
+      color: var(--ink-soft);
+      background: rgba(244, 239, 231, .92);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .practice-badge::before {
+      content: "";
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--clay);
+    }
+    .practice-icon {
+      position: absolute;
+      z-index: 2;
+      top: 126px;
+      left: 50%;
+      width: min(70%, 430px);
+      height: auto;
+      overflow: visible;
+      transform: translateX(-50%);
+      filter: drop-shadow(0 24px 46px rgba(6, 17, 13, .22));
+    }
+    .practice-icon-aura { fill: rgba(244, 239, 231, .08); }
+    .practice-icon-stem,
+    .practice-icon-spine,
+    .practice-icon-hands {
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .practice-icon-stem,
+    .practice-icon-spine {
+      stroke: rgba(244, 239, 231, .64);
+      stroke-width: 5;
+    }
+    .practice-icon-hands {
+      stroke: rgba(207, 195, 162, .82);
+      stroke-width: 13;
+    }
+    .practice-icon-dot { fill: var(--clay); }
+    .practice-quote {
+      position: absolute;
+      z-index: 3;
+      right: 58px;
+      bottom: 68px;
+      left: 58px;
+      margin: 0;
+      color: rgba(244, 239, 231, .9);
+      font-family: var(--serif);
+      font-size: 23px;
+      font-style: italic;
+      line-height: 1.22;
+    }
+    .practice-quote::before {
+      content: "''";
+      display: block;
+      margin-bottom: 18px;
+      color: var(--clay);
+      font-family: var(--sans);
+      font-size: 34px;
+      font-style: normal;
+      font-weight: 800;
+      line-height: 1;
+    }
+    .practice-visual figcaption {
+      position: absolute;
+      z-index: 3;
+      left: 58px;
+      bottom: 38px;
+      color: rgba(244, 239, 231, .54);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+    .info-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+      padding-top: 88px;
+      padding-bottom: 64px;
+    }
+    .card {
+      border: 1px solid var(--rule);
+      border-radius: 24px;
+      background: var(--white);
+      box-shadow: 0 1px 0 rgba(15, 20, 16, .04);
+    }
+    .info-card {
+      min-height: 100%;
+      padding: 28px;
+    }
+    .info-card.dark {
+      color: var(--paper);
+      background: var(--moss);
+      border-color: transparent;
+    }
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+      color: var(--moss);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    .dark .kicker { color: rgba(244, 239, 231, .72); }
+    .kicker::before {
+      content: "";
+      width: 24px;
+      height: 1px;
+      background: currentColor;
+      opacity: .65;
+    }
+    .info-card h2,
+    .info-card h3,
+    .side-title {
+      margin: 0 0 14px;
+      font-family: var(--serif);
+      font-size: 29px;
+      font-weight: 400;
+      line-height: 1.08;
+    }
+    .info-card p,
+    .lead,
+    .muted {
+      margin: 0;
+      color: var(--ink-soft);
+    }
+    .dark p { color: rgba(244, 239, 231, .86); }
+    .quick-call {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 18px;
+      padding: 15px;
+      border-radius: 18px;
+      color: var(--white);
+      background: var(--clay);
+      transition: transform .18s ease, background .18s ease;
+    }
+    .quick-call:hover { transform: translateY(-2px); background: var(--clay-dark); }
+    .quick-call .icon,
+    .icon-tile {
+      display: grid;
+      place-items: center;
+      flex: none;
+    }
+    .quick-call .icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .2);
+    }
+    .quick-call svg { width: 19px; height: 19px; }
+    .quick-call small {
+      display: block;
+      color: rgba(255, 255, 255, .82);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .quick-call strong {
+      display: block;
+      font-family: var(--serif);
+      font-size: 23px;
+      font-weight: 400;
+      line-height: 1.1;
+    }
+    .hours-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 14px 0;
+      border-bottom: 1px dashed var(--rule);
+    }
+    .hours-row:last-child { border-bottom: 0; }
+    .hours-row span:first-child {
+      color: var(--ink-soft);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+    .hours-row span:last-child {
+      font-family: var(--serif);
+      font-size: 20px;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: 1fr;
+      justify-items: center;
+      align-items: center;
+      gap: 48px;
+      margin-bottom: 46px;
+      text-align: center;
+    }
+    .section-head h2 {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(42px, 5vw, 76px);
+      font-weight: 400;
+      line-height: .98;
+      letter-spacing: 0;
+    }
+    .section-head h2 em { color: var(--clay); font-style: italic; }
+    .section-head .lead {
+      max-width: 72ch;
+      font-size: 17px;
+    }
+    .section-head .kicker { justify-content: center; }
+
+    .treatments {
+      padding-top: 38px;
+      padding-bottom: 80px;
+    }
+    .treat-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+    .treat-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      min-height: 260px;
+      padding: 30px;
+      transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+    }
+    .treat-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(44, 74, 58, .42);
+      box-shadow: var(--shadow);
+    }
+    .icon-tile {
+      width: 56px;
+      height: 56px;
+      margin-bottom: 22px;
+      border-radius: 18px;
+      color: var(--moss);
+      background: var(--paper);
+      transition: background .22s ease, color .22s ease;
+    }
+    .treat-card:hover .icon-tile { color: var(--paper); background: var(--moss); }
+    .icon-tile svg { width: 26px; height: 26px; }
+    .treat-card h3 {
+      margin: 0 0 10px;
+      font-family: var(--serif);
+      font-size: 28px;
+      font-weight: 400;
+      line-height: 1.08;
+    }
+    .treat-card p { margin: 0; color: var(--ink-soft); font-size: 14.5px; }
+    .treat-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: auto;
+      padding-top: 18px;
+      border-top: 1px dashed var(--rule);
+    }
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 26px;
+      padding: 3px 10px;
+      border-radius: 999px;
+      color: var(--moss);
+      background: var(--paper);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .booking {
+      padding-top: 56px;
+      padding-bottom: 86px;
+    }
+    .booking-panel {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 24px;
+    }
+    .methods {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+    .method-card {
+      display: flex;
+      flex-direction: column;
+      min-height: 280px;
+      padding: 26px;
+    }
+    .method-card.featured {
+      color: var(--paper);
+      background: var(--ink);
+      border-color: transparent;
+    }
+    .method-card.featured .kicker { color: var(--clay); }
+    .method-card h3,
+    .checklist h3,
+    .contact-form h3 {
+      margin: 0 0 12px;
+      font-family: var(--serif);
+      font-size: 29px;
+      font-weight: 400;
+      line-height: 1.08;
+    }
+    .method-card p { margin: 0 0 18px; color: var(--ink-soft); font-size: 14.5px; }
+    .method-card.featured p { color: rgba(244, 239, 231, .8); }
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: auto;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-height: 46px;
+      padding: 12px 18px;
+      border: 1px solid var(--rule);
+      border-radius: 999px;
+      color: var(--ink);
+      background: var(--white);
+      font-size: 13px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform .18s ease, background .18s ease, border-color .18s ease;
+    }
+    .btn:hover { transform: translateY(-1px); border-color: rgba(44, 74, 58, .42); }
+    .btn.primary { color: var(--white); background: var(--clay); border-color: var(--clay); }
+    .btn.primary:hover { background: var(--clay-dark); border-color: var(--clay-dark); }
+    .btn.moss { color: var(--white); background: var(--moss); border-color: var(--moss); }
+    .btn[aria-disabled="true"] {
+      cursor: not-allowed;
+      opacity: .8;
+    }
+    .btn svg { width: 16px; height: 16px; }
+    .todo {
+      margin-top: 18px;
+      padding: 12px 14px;
+      border: 1px dashed rgba(244, 239, 231, .26);
+      border-radius: 16px;
+      color: rgba(244, 239, 231, .74);
+      font-size: 12px;
+    }
+
+    .booking-side {
+      display: grid;
+      gap: 18px;
+    }
+    .checklist,
+    .contact-form {
+      padding: 28px;
+    }
+    .checklist ul {
+      margin: 18px 0 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 12px;
+    }
+    .checklist li {
+      display: grid;
+      grid-template-columns: 24px 1fr;
+      gap: 10px;
+      color: var(--ink-soft);
+    }
+    .checklist li::before {
+      content: "";
+      width: 20px;
+      height: 20px;
+      margin-top: 2px;
+      border-radius: 50%;
+      background:
+        linear-gradient(var(--moss), var(--moss)) 50% 54% / 9px 2px no-repeat,
+        linear-gradient(90deg, transparent 0 40%, var(--moss) 40% 60%, transparent 60%) 50% 54% / 2px 9px no-repeat,
+        var(--paper);
+      border: 1px solid var(--rule);
+    }
+
+    .visit-section {
+      padding-top: 12px;
+      padding-bottom: 74px;
+    }
+    .visit-band {
+      display: grid;
+      grid-template-columns: .85fr 1.15fr;
+      gap: 32px;
+      align-items: center;
+      padding: 34px;
+      color: var(--paper);
+      background:
+        linear-gradient(135deg, rgba(15, 20, 16, .96), rgba(44, 74, 58, .94)),
+        radial-gradient(circle at 80% 20%, rgba(200, 103, 74, .3), transparent 48%);
+      border-radius: 28px;
+    }
+    .visit-band h2 {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(36px, 4vw, 58px);
+      font-weight: 400;
+      line-height: 1;
+    }
+    .visit-band p { margin: 0; color: rgba(244, 239, 231, .8); }
+
+    .team {
+      padding-top: 32px;
+      padding-bottom: 86px;
+    }
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+    .team-card {
+      overflow: hidden;
+      min-height: 100%;
+      transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+    }
+    .team-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(44, 74, 58, .42);
+      box-shadow: var(--shadow);
+    }
+    .portrait {
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      background: var(--paper-2);
+    }
+    .portrait img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+    .team-info {
+      display: grid;
+      gap: 16px;
+      padding: 26px;
+    }
+    .team-card h3 {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: 34px;
+      font-weight: 400;
+      line-height: 1.02;
+    }
+    .role {
+      margin: -8px 0 0;
+      color: var(--ink-soft);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .phone {
+      display: inline-flex;
+      width: fit-content;
+      align-items: center;
+      gap: 9px;
+      min-height: 42px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      color: var(--moss);
+      background: var(--paper);
+      font-weight: 800;
+    }
+    .phone svg { width: 16px; height: 16px; }
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      color: var(--moss);
+      background: var(--paper);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .badge.defense {
+      color: var(--white);
+      background: var(--moss);
+    }
+    .team-note {
+      margin-top: 34px;
+      padding: 30px;
+      border-radius: 24px;
+      color: var(--paper);
+      background:
+        linear-gradient(135deg, rgba(15, 20, 16, .96), rgba(44, 74, 58, .94)),
+        radial-gradient(circle at 80% 20%, rgba(200, 103, 74, .3), transparent 48%);
+    }
+    .team-note p {
+      max-width: 70ch;
+      margin: 0;
+      color: rgba(244, 239, 231, .82);
+      font-size: 16px;
+    }
+
+    .contact-wrap {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 24px;
+    }
+    .privacy-note {
+      margin: 16px 0;
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: var(--paper);
+      color: var(--ink-soft);
+      font-size: 13.5px;
+    }
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .field { display: grid; gap: 7px; }
+    .field.full { grid-column: 1 / -1; }
+    label {
+      color: var(--ink-soft);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    input,
+    textarea,
+    select {
+      width: 100%;
+      min-height: 48px;
+      padding: 12px 14px;
+      border: 1px solid var(--rule);
+      border-radius: 14px;
+      color: var(--ink);
+      background: var(--white);
+      outline: none;
+      transition: border-color .18s ease, box-shadow .18s ease;
+    }
+    textarea { min-height: 120px; resize: vertical; }
+    input:focus,
+    textarea:focus,
+    select:focus {
+      border-color: rgba(44, 74, 58, .58);
+      box-shadow: 0 0 0 4px rgba(44, 74, 58, .12);
+    }
+    .consent {
+      display: grid;
+      grid-template-columns: 22px 1fr;
+      gap: 10px;
+      align-items: start;
+      grid-column: 1 / -1;
+      color: var(--ink-soft);
+      font-size: 13.5px;
+      text-transform: none;
+      letter-spacing: 0;
+      font-weight: 500;
+    }
+    .consent input { min-height: 0; width: 18px; height: 18px; margin-top: 3px; }
+    .form-status {
+      display: none;
+      margin-top: 14px;
+      color: var(--moss);
+      font-weight: 800;
+    }
+    .form-status.visible { display: block; }
+    .contact-form[data-state="error"] .form-status { color: var(--clay-dark); }
+
+    footer {
+      margin-top: 72px;
+      padding: 74px 40px 34px;
+      color: var(--paper);
+      background: var(--ink);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.35fr 1fr 1fr 1fr;
+      gap: 44px;
+      max-width: 1320px;
+      margin: 0 auto;
+      padding-bottom: 46px;
+      border-bottom: 1px solid rgba(255, 255, 255, .12);
+    }
+    .footer-brand {
+      width: min(260px, 100%);
+      margin: 0 0 18px;
+      padding: 16px;
+      border-radius: 28px;
+      background: var(--paper);
+    }
+    footer p,
+    footer li {
+      color: rgba(244, 239, 231, .72);
+      font-size: 14px;
+    }
+    footer h3 {
+      margin: 0 0 15px;
+      color: rgba(244, 239, 231, .54);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+    footer ul {
+      display: grid;
+      gap: 9px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    footer a:hover { color: var(--clay); }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      max-width: 1320px;
+      margin: 0 auto;
+      padding-top: 25px;
+      color: rgba(244, 239, 231, .48);
+      font-size: 12px;
+    }
+
+    @media (max-width: 1080px) {
+      .nav-links { display: none; }
+      .hero-meta,
+      .practice-intro,
+      .section-head,
+      .booking-panel,
+      .visit-band,
+      .contact-wrap,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-stat { text-align: left; }
+      .methods,
+      .info-row,
+      .treat-grid {
+        grid-template-columns: 1fr;
+      }
+      .team-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 640px) {
+      .hero-video { object-position: 38% center; }
+      .nav {
+        flex-wrap: wrap;
+        row-gap: 10px;
+        padding: 14px 18px;
+      }
+      .mark { width: 142px; min-height: 52px; padding: 5px 10px; border-radius: 20px; }
+      .brand-logo { height: 42px; }
+      .nav-tools {
+        order: 3;
+        flex: 0 0 100%;
+        width: 100%;
+        justify-content: space-between;
+      }
+      .language-switcher { background: rgba(0, 0, 0, .24); }
+      .nav-call { padding-inline: 13px; }
+      .nav-call span { display: none; }
+      .hero-inner { padding: 96px 22px 48px; }
+      .hero-meta { gap: 22px; }
+      .scroll-hint { display: none; }
+      h1 { font-size: clamp(54px, 18vw, 82px); }
+      .section,
+      .practice-intro,
+      .info-row,
+      .treatments,
+      .team,
+      .booking,
+      .visit-section { padding-inline: 22px; }
+      .form-grid,
+      .team-grid { grid-template-columns: 1fr; }
+      .method-card,
+      .info-card,
+      .checklist,
+      .contact-form { padding: 22px; }
+      .practice-intro {
+        gap: 32px;
+        padding-top: 58px;
+        padding-bottom: 18px;
+      }
+      .practice-copy h2 { font-size: clamp(42px, 13vw, 56px); }
+      .practice-copy p { font-size: 16px; }
+      .practice-stats {
+        gap: 16px;
+        margin-top: 32px;
+      }
+      .practice-stat strong { font-size: 34px; }
+      .practice-stat small { font-size: 10px; }
+      .practice-visual {
+        min-height: 470px;
+        border-radius: 22px;
+      }
+      .practice-badge {
+        top: 22px;
+        left: 22px;
+      }
+      .practice-icon {
+        top: 112px;
+        width: 82%;
+      }
+      .practice-quote {
+        right: 28px;
+        bottom: 68px;
+        left: 28px;
+        font-size: 21px;
+      }
+      .practice-visual figcaption {
+        left: 28px;
+        bottom: 36px;
+      }
+      .footer-bottom { flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="sr-only" href="#main">Ga naar inhoud</a>
+
+  <header class="nav" id="nav">
+    <a class="mark" href="#">
+      <img class="brand-logo" src="assets/dedecker-weyers-logo.png" alt="Kinesitherapie BVBA Dedecker-Weyers">
+    </a>
+    <nav aria-label="Hoofdnavigatie">
+      <ul class="nav-links">
+        <li><a href="#" data-i18n="nav.practice">Praktijk</a></li>
+        <li><a href="#behandelingen" data-i18n="nav.treatments">Behandelingen</a></li>
+        <li><a href="#team" data-i18n="nav.team">Team</a></li>
+        <li class="active"><a href="#afspraak" data-i18n="nav.appointment">Afspraak</a></li>
+        <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav-tools">
+      <div class="language-switcher" role="group" aria-label="Language">
+        <button type="button" class="lang-option active" data-lang="nl" aria-pressed="true">NL</button>
+        <button type="button" class="lang-option" data-lang="en" aria-pressed="false">EN</button>
+        <button type="button" class="lang-option" data-lang="fr" aria-pressed="false">FR</button>
+        <button type="button" class="lang-option" data-lang="pl" aria-pressed="false">PL</button>
+      </div>
+      <a class="nav-call" href="tel:022677288">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 11.19 18.85a19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.95.36 1.89.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.92.34 1.86.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span>02 267 72 88</span>
+      </a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <video class="hero-video" id="heroVideo" autoplay muted loop playsinline preload="metadata" poster="https://assets.mixkit.co/videos/13059/13059-thumb-360-0.jpg">
+        <source src="https://assets.mixkit.co/videos/13059/13059-720.mp4" type="video/mp4">
+        <source src="https://assets.mixkit.co/videos/13043/13043-720.mp4" type="video/mp4">
+        <source src="https://assets.mixkit.co/videos/49539/49539-720.mp4" type="video/mp4">
+      </video>
+      <div class="hero-poster" aria-hidden="true"></div>
+      <div class="hero-overlay" aria-hidden="true"></div>
+      <div class="hero-grain" aria-hidden="true"></div>
+
+      <div class="hero-inner">
+        <div class="eyebrow">Koningslo-Vilvoorde</div>
+        <h1 id="hero-title"><span class="hero-title-kicker" data-i18n="hero.kicker">Maak een afspraak</span><span class="hero-title-text" data-i18n-html="hero.title">Beweging,<br><em>hersteld.</em></span></h1>
+        <div class="hero-meta">
+          <div class="hero-copy">
+            <p data-i18n="hero.copy">Behandelingen worden uitsluitend op afspraak uitgevoerd. Ook huisbezoeken gebeuren enkel op afspraak, telefonisch af te stemmen met de praktijk.</p>
+            <a class="hero-appointment-link" href="#afspraak" data-i18n="hero.cta">By appointment</a>
+          </div>
+          <div class="hero-stat">
+            <span class="meta-label" data-i18n="hero.experience">Lokale ervaring</span>
+            <strong>35+</strong>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track" id="marquee" data-i18n-html="marquee.text">
+        <span>Manuele therapie <span class="sep">+</span> <em>Sportrevalidatie</em> <span class="sep">+</span> Lymfedrainage <span class="sep">+</span> Ademhalingskinesitherapie <span class="sep">+</span> Neurologische revalidatie <span class="sep">+</span> <em>Huisbezoeken</em> <span class="sep">+</span> Cardiale revalidatie <span class="sep">+</span></span>
+      </div>
+    </div>
+
+    <section class="practice-intro" aria-labelledby="practice-title">
+      <div class="practice-copy">
+        <span class="kicker" data-i18n="practice.kicker">Over de praktijk</span>
+        <h2 id="practice-title" data-i18n-html="practice.title">Ruim 35 jaar gespecialiseerde <em>kinesitherapie</em> in Koningslo-Vilvoorde.</h2>
+        <p data-i18n-html="practice.copy1">Ons enthousiast team verzekert u een <strong>individueel aangepaste behandeling</strong> - elke therapeut heeft zijn eigen vakinteresse. We schaven onze vaardigheden voortdurend bij en breiden ze aan met bijzondere bekwaamheden.</p>
+        <p data-i18n-html="practice.copy2">Om de vooropgestelde doelen te bereiken beschikken we over een volledig vernieuwde praktijk met een <strong>goed uitgeruste oefenruimte</strong> en een ruime therapietuin.</p>
+        <div class="practice-stats" aria-label="Praktijk in cijfers">
+          <div class="practice-stat">
+            <strong>35<span>+</span></strong>
+            <small data-i18n="practice.statExperience">Jaar ervaring</small>
+          </div>
+          <div class="practice-stat">
+            <strong>9</strong>
+            <small data-i18n="practice.statTreatments">Behandelvormen</small>
+          </div>
+          <div class="practice-stat">
+            <strong>4</strong>
+            <small data-i18n="practice.statTherapists">Therapeuten</small>
+          </div>
+        </div>
+      </div>
+
+      <figure class="practice-visual" aria-label="Illustratie van individuele kinesitherapeutische zorg">
+        <span class="practice-badge" data-i18n="practice.badge">SINDS 1989</span>
+        <svg class="practice-icon" viewBox="0 0 260 220" role="img" aria-label="Care and movement icon">
+          <ellipse class="practice-icon-aura" cx="138" cy="112" rx="118" ry="96"/>
+          <path class="practice-icon-stem" d="M112 130c17-34 40-61 72-82"/>
+          <path class="practice-icon-spine" d="M118 60c-21 21-28 46-17 70 9 19 5 36-12 55"/>
+          <circle class="practice-icon-dot" cx="106" cy="84" r="5"/>
+          <circle class="practice-icon-dot" cx="100" cy="108" r="5"/>
+          <circle class="practice-icon-dot" cx="106" cy="132" r="5"/>
+          <path class="practice-icon-hands" d="M48 151c29 20 60 27 88 13 22-11 34-31 60-33 12-1 24 3 34 13"/>
+          <path class="practice-icon-hands" d="M66 174c28 16 58 18 86 7 25-10 42-25 68-20"/>
+        </svg>
+        <blockquote class="practice-quote" data-i18n="practice.quote">Optimale, individueel aangepaste zorg - in een vernieuwde praktijk met therapietuin.</blockquote>
+        <figcaption>- BVBA Dedecker-Weyers</figcaption>
+      </figure>
+    </section>
+
+    <section class="info-row" aria-label="Praktische afspraakinfo">
+      <article class="info-card dark card">
+        <span class="kicker" data-i18n="cards.practiceKicker">Praktijk</span>
+        <h2>Veldstraat 24<br>1800 Koningslo-Vilvoorde</h2>
+        <p data-i18n="cards.practiceCopy">Nieuwe afspraak? Bel ons of gebruik het online reservatiesysteem zodra beschikbaar.</p>
+        <a class="quick-call" href="tel:022677288">
+          <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 11.19 18.85a19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.95.36 1.89.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.92.34 1.86.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+          <span><small data-i18n="cards.callPractice">Bel de praktijk</small><strong>02 267 72 88</strong></span>
+        </a>
+      </article>
+      <article class="info-card card">
+        <span class="kicker" data-i18n="cards.hoursKicker">Openingsuren</span>
+        <div class="hours-row"><span data-i18n="cards.weekdays">Ma-vr</span><span>08:00-21:00</span></div>
+        <div class="hours-row"><span data-i18n="cards.weekend">Weekend</span><span data-i18n="cards.closed">Gesloten</span></div>
+      </article>
+      <article class="info-card card">
+        <span class="kicker" data-i18n="cards.knowKicker">Goed om te weten</span>
+        <h3 data-i18n="cards.knowTitle">Telefonisch voor dringende vragen</h3>
+        <p data-i18n="cards.knowCopy">Voor dringende afspraken of wanneer u online geen passend moment vindt, neem telefonisch contact op. Vermeld geen gevoelige medische informatie per mail of formulier.</p>
+      </article>
+    </section>
+
+    <section class="treatments" id="behandelingen" aria-labelledby="treat-title">
+      <div class="section-head">
+        <div>
+          <span class="kicker" data-i18n="treatments.kicker">Behandelingen</span>
+          <h2 id="treat-title" data-i18n-html="treatments.title">Waarvoor kunt u <em>terecht?</em></h2>
+        </div>
+        <p class="lead" data-i18n="treatments.lead">Een selectie van behandelingen uit de praktijk. De juiste aanpak wordt afgestemd op uw klachten, verwijzing en hersteldoelen.</p>
+      </div>
+
+      <div class="treat-grid">
+        <article class="treat-card card">
+          <div class="icon-tile" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 15c2-1 3-3 4-6"/><path d="M13 15c2-1 3-3 4-6"/><path d="M6 19h12"/><path d="M7 5h10"/></svg></div>
+          <h3 data-i18n="treatment.manualTitle">Manuele Therapie</h3>
+          <p data-i18n="treatment.manualCopy">Onderzoek en behandeling van gewrichten, spieren en zenuwstructuren, met aandacht voor bewegingsvrijheid.</p>
+          <div class="treat-meta"><span class="tag" data-i18n="treatment.manualTag">Nek en rug</span></div>
+        </article>
+        <article class="treat-card card">
+          <div class="icon-tile" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M4 12h16"/><path d="M12 3c3 3 3 15 0 18"/><path d="M12 3c-3 3-3 15 0 18"/></svg></div>
+          <h3 data-i18n="treatment.sportTitle">Sportrevalidatie</h3>
+          <p data-i18n="treatment.sportCopy">Begeleiding na sportletsels of ingrepen, met oefentherapie en een geleidelijke terugkeer naar activiteit.</p>
+          <div class="treat-meta"><span class="tag" data-i18n="treatment.sportTag">Training</span></div>
+        </article>
+        <article class="treat-card card">
+          <div class="icon-tile" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h3l3-8 4 16 3-8h5"/></svg></div>
+          <h3 data-i18n="treatment.tecarTitle">Tecar Therapie INDIBA</h3>
+          <p data-i18n="treatment.tecarCopy">Technologische ondersteuning binnen een behandelplan, toegepast wanneer dit medisch passend is.</p>
+          <div class="treat-meta"><span class="tag" data-i18n="treatment.tecarTag">Technologie</span></div>
+        </article>
+        <article class="treat-card card">
+          <div class="icon-tile" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"/><path d="M5 8c4 0 7 3 7 7"/><path d="M19 8c-4 0-7 3-7 7"/></svg></div>
+          <h3 data-i18n="treatment.lymphTitle">Manuele Lymfedrainage</h3>
+          <p data-i18n="treatment.lymphCopy">Zachte technieken gericht op vochtophoping of zwelling, meestal als onderdeel van een breder zorgtraject.</p>
+          <div class="treat-meta"><span class="tag" data-i18n="treatment.lymphTag">Oedeem</span></div>
+        </article>
+        <article class="treat-card card">
+          <div class="icon-tile" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0-6 6v1a5 5 0 0 0 2 9 5 5 0 0 0 8 0 5 5 0 0 0 2-9V9a6 6 0 0 0-6-6z"/><path d="M12 9v12"/></svg></div>
+          <h3 data-i18n="treatment.neuroTitle">Neurologische Revalidatie</h3>
+          <p data-i18n="treatment.neuroCopy">Oefengerichte begeleiding bij neurologische aandoeningen, met focus op dagelijks functioneren.</p>
+          <div class="treat-meta"><span class="tag" data-i18n="treatment.neuroTag">Revalidatie</span></div>
+        </article>
+        <article class="treat-card card">
+          <div class="icon-tile" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13c3-6 13-6 16 0"/><path d="M4 17c3-3 13-3 16 0"/><path d="M8 9c1-3 7-3 8 0"/></svg></div>
+          <h3 data-i18n="treatment.breathingTitle">Ademhalingskinesitherapie</h3>
+          <p data-i18n="treatment.breathingCopy">Ondersteuning bij ademhalingsklachten en herstel, afgestemd op leeftijd en medische context.</p>
+          <div class="treat-meta"><span class="tag" data-i18n="treatment.breathingTag">Ademhaling</span></div>
+        </article>
+        <article class="treat-card card">
+          <div class="icon-tile" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg></div>
+          <h3 data-i18n="treatment.perinatalTitle">Perinatale Kinesitherapie</h3>
+          <p data-i18n="treatment.perinatalCopy">Begeleiding rond zwangerschap en herstel nadien, met aandacht voor comfort en verantwoord bewegen.</p>
+          <div class="treat-meta"><span class="tag" data-i18n="treatment.perinatalTag">Voor en na</span></div>
+        </article>
+        <article class="treat-card card">
+          <div class="icon-tile" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4h10l2 7-7 9-7-9z"/><path d="M8 11h8"/></svg></div>
+          <h3 data-i18n="treatment.geriatricTitle">Geriatrische Kinesitherapie</h3>
+          <p data-i18n="treatment.geriatricCopy">Mobiliteit, kracht, evenwicht en valpreventie voor oudere patienten, thuis of in de praktijk.</p>
+          <div class="treat-meta"><span class="tag" data-i18n="treatment.geriatricTag">Mobiliteit</span></div>
+        </article>
+        <article class="treat-card card">
+          <div class="icon-tile" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8v10a2 2 0 0 1-2 2h-4v-6H9v6H5a2 2 0 0 1-2-2z"/></svg></div>
+          <h3 data-i18n="treatment.homeTitle">Huisbezoek</h3>
+          <p data-i18n="treatment.homeCopy">Voor patienten die zich moeilijk kunnen verplaatsen, waar medisch aangewezen en enkel na afspraak.</p>
+          <div class="treat-meta"><span class="tag" data-i18n="treatment.homeTag">Telefonisch</span></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="booking" id="afspraak" aria-labelledby="booking-title">
+      <div class="section-head">
+        <div>
+          <span class="kicker" data-i18n="booking.kicker">Afspraak maken</span>
+          <h2 id="booking-title" data-i18n-html="booking.title">Kies de juiste <em>route.</em></h2>
+        </div>
+        <p class="lead" data-i18n="booking.lead">Behandeling in de praktijk en huisbezoeken verlopen enkel op afspraak. Telefonisch contact blijft de snelste keuze voor dringende vragen, huisbezoeken of wijzigingen.</p>
+      </div>
+
+      <div class="booking-panel">
+        <div class="methods">
+          <article class="method-card featured card">
+            <span class="kicker" data-i18n="booking.recommended">Aanbevolen</span>
+            <h3 data-i18n="booking.callTitle">Bel de praktijk</h3>
+            <p data-i18n="booking.callCopy">Beste keuze voor een eerste afspraak, dringende afspraak, huisbezoek of het verplaatsen van een afspraak.</p>
+            <div class="button-row"><a class="btn primary" href="tel:022677288">02 267 72 88</a></div>
+          </article>
+          <article class="method-card card">
+            <span class="kicker" data-i18n="booking.onlineKicker">Online</span>
+            <h3 data-i18n="booking.onlineTitle">Reservatiesysteem</h3>
+            <p data-i18n="booking.onlineCopy">Online boeken komt hier zodra de praktijk een reservatieprovider bevestigt.</p>
+            <div class="button-row"><a class="btn" href="#" aria-disabled="true" data-i18n="booking.unavailable">Nog niet beschikbaar</a></div>
+            <div class="todo" data-i18n="booking.todo">TODO: koppel hier Progenda, Rosa, Doctena, Doctoranytime of de gekozen praktijktool.</div>
+          </article>
+          <article class="method-card card">
+            <span class="kicker" data-i18n="booking.notUrgent">Niet urgent</span>
+            <h3 data-i18n="booking.emailTitle">Email</h3>
+            <p data-i18n="booking.emailCopy">Gebruik email voor praktische vragen. Voor snelle of dringende afspraken: bel de praktijk.</p>
+            <div class="button-row"><a class="btn moss" href="mailto:eway@skynet.be">eway@skynet.be</a></div>
+          </article>
+        </div>
+
+        <aside class="booking-side">
+          <article class="checklist card">
+            <h3 data-i18n="booking.checklistTitle">Wat brengt u mee?</h3>
+            <ul>
+              <li data-i18n="checklist.id">Identiteitskaart</li>
+              <li data-i18n="checklist.mutuality">Klevertje van de mutualiteit, indien relevant</li>
+              <li data-i18n="checklist.prescription">Voorschrift van de arts, indien vereist</li>
+              <li data-i18n="checklist.reports">Relevante medische verslagen of beeldvorming</li>
+              <li data-i18n="checklist.clothes">Comfortabele kleding</li>
+            </ul>
+          </article>
+        </aside>
+      </div>
+    </section>
+
+    <section class="visit-section" aria-labelledby="visits-title">
+      <div class="visit-band">
+        <h2 id="visits-title" data-i18n="visits.title">Huisbezoeken</h2>
+        <p data-i18n="visits.copy">Huisbezoeken zijn mogelijk wanneer verplaatsing moeilijk is en de situatie medisch passend is. Neem telefonisch contact op om dit te bespreken. De exacte regio en planning blijven configureerbaar.</p>
+      </div>
+    </section>
+
+    <section class="team" id="team" aria-labelledby="team-title">
+      <div class="section-head">
+        <div>
+          <span class="kicker" data-i18n="nav.team">Team</span>
+          <h2 id="team-title" data-i18n-html="team.title">Zorg door een <em>ervaren team.</em></h2>
+        </div>
+        <p class="lead" data-i18n="team.lead">Publieke contactgegevens en profielfoto's komen van de bestaande Engelstalige teampagina. Notities voor zorgverlener Defensie verschijnen alleen waar de bronpagina ze vermeldt.</p>
+      </div>
+      <div class="team-grid">
+        <article class="team-card card">
+          <div class="portrait"><img src="assets/team/yves-dedecker.jpg" alt="Yves Dedecker"></div>
+          <div class="team-info">
+            <h3>Yves Dedecker</h3>
+            <p class="role" data-i18n="team.role">Kinesitherapeut</p>
+            <a class="phone" href="tel:0472499574"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 11.19 18.85a19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.95.36 1.89.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.92.34 1.86.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>0472/499574</a>
+            <div class="badges"><span class="badge defense" data-i18n="team.defenseBadge">Zorgverlener Defensie</span></div>
+          </div>
+        </article>
+        <article class="team-card card">
+          <div class="portrait"><img src="assets/team/annick-weyers.jpg" alt="Annick Weyers"></div>
+          <div class="team-info">
+            <h3>Annick Weyers</h3>
+            <p class="role" data-i18n="team.role">Kinesitherapeut</p>
+            <a class="phone" href="tel:0486961077"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 11.19 18.85a19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.95.36 1.89.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.92.34 1.86.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>0486/961077</a>
+            <div class="badges"><span class="badge defense" data-i18n="team.defenseBadge">Zorgverlener Defensie</span></div>
+          </div>
+        </article>
+        <article class="team-card card">
+          <div class="portrait"><img src="assets/team/valentino-coppolaro.jpg" alt="Valentino Coppolaro"></div>
+          <div class="team-info">
+            <h3>Valentino Coppolaro</h3>
+            <p class="role" data-i18n="team.role">Kinesitherapeut</p>
+            <a class="phone" href="tel:0491492962"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 11.19 18.85a19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.95.36 1.89.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.92.34 1.86.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>0491/492962</a>
+            <div class="badges"><span class="badge" data-i18n="team.memberBadge">Teamlid</span></div>
+          </div>
+        </article>
+        <article class="team-card card">
+          <div class="portrait"><img src="assets/team/aurelie-myaux.jpg" alt="Aurélie Myaux"></div>
+          <div class="team-info">
+            <h3>Aurélie Myaux</h3>
+            <p class="role" data-i18n="team.role">Kinesitherapeut</p>
+            <a class="phone" href="tel:0472892105"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 11.19 18.85a19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.95.36 1.89.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.92.34 1.86.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>0472/892105</a>
+            <div class="badges"><span class="badge" data-i18n="team.memberBadge">Teamlid</span></div>
+          </div>
+        </article>
+        <article class="team-card card">
+          <div class="portrait"><img src="assets/team/antoon-goegebeur.jpg" alt="Antoon Goegebeur"></div>
+          <div class="team-info">
+            <h3>Antoon Goegebeur</h3>
+            <p class="role" data-i18n="team.role">Kinesitherapeut</p>
+            <a class="phone" href="tel:0470203086"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 11.19 18.85a19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.95.36 1.89.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.92.34 1.86.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>0470/203086</a>
+            <div class="badges"><span class="badge" data-i18n="team.memberBadge">Teamlid</span></div>
+          </div>
+        </article>
+        <article class="team-card card">
+          <div class="portrait"><img src="assets/team/jeanne-vignette.jpg" alt="Jeanne Vignette"></div>
+          <div class="team-info">
+            <h3>Jeanne Vignette</h3>
+            <p class="role" data-i18n="team.role">Kinesitherapeut</p>
+            <a class="phone" href="tel:0491493007"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 11.19 18.85a19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.95.36 1.89.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.92.34 1.86.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>0491/493007</a>
+            <div class="badges"><span class="badge" data-i18n="team.memberBadge">Teamlid</span></div>
+          </div>
+        </article>
+      </div>
+      <div class="team-note">
+        <p data-i18n="team.note">Voor dringende afspraken, huisbezoeken of het verplaatsen van een afspraak belt u best rechtstreeks naar de praktijk. Publieke mobiele nummers worden hier getoond omdat ze op de vermelde teampagina staan.</p>
+      </div>
+    </section>
+
+    <section class="section" id="contact" aria-labelledby="contact-title">
+      <div class="section-head">
+        <div>
+          <span class="kicker" data-i18n="contact.kicker">Contactformulier</span>
+          <h2 id="contact-title" data-i18n-html="contact.title">Stel een <em>praktische vraag.</em></h2>
+        </div>
+        <p class="lead" data-i18n="contact.lead">Dit formulier is bedoeld voor praktische contactvragen. Het bewaart niets lokaal en bevat een TODO voor de latere server- of formulierintegratie.</p>
+      </div>
+
+      <div class="contact-wrap">
+        <article class="info-card dark card">
+          <span class="kicker" data-i18n="contact.address">Adres</span>
+          <h3>BVBA Dedecker-Weyers</h3>
+          <p>Veldstraat 24<br>1800 Koningslo-Vilvoorde</p>
+          <div class="quick-call"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg></span><span><small data-i18n="cards.emailLabel">Email</small><strong style="font-size:20px">eway@skynet.be</strong></span></div>
+        </article>
+
+        <form class="contact-form card" id="contactForm">
+          <h3 data-i18n="contact.formTitle">Contacteer ons</h3>
+          <p class="privacy-note" data-i18n="contact.privacy">Vermeld geen gevoelige medische informatie in dit formulier.</p>
+          <div class="form-grid">
+            <div class="field">
+              <label for="name" data-i18n="form.name">Naam</label>
+              <input id="name" name="name" autocomplete="name" required>
+            </div>
+            <div class="field">
+              <label for="email" data-i18n="form.email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" required>
+            </div>
+            <div class="field">
+              <label for="phone" data-i18n="form.phone">Telefoon</label>
+              <input id="phone" name="phone" autocomplete="tel">
+            </div>
+            <div class="field">
+              <label for="contactMethod" data-i18n="form.preference">Voorkeur contact</label>
+              <select id="contactMethod" name="contactMethod">
+                <option data-i18n="form.phoneOption">Telefoon</option>
+                <option data-i18n="form.email">Email</option>
+              </select>
+            </div>
+            <div class="field full">
+              <label for="message" data-i18n="form.message">Korte boodschap</label>
+              <textarea id="message" name="message" placeholder="Bijvoorbeeld: ik wil graag teruggebeld worden voor een afspraak." data-i18n-placeholder="form.placeholder"></textarea>
+            </div>
+            <div class="field sr-only" aria-hidden="true">
+              <label for="company">Bedrijf</label>
+              <input id="company" name="company" tabindex="-1" autocomplete="off">
+            </div>
+            <label class="consent">
+              <input type="checkbox" name="consent" required>
+              <span data-i18n="form.consent">Ik ga akkoord dat mijn gegevens gebruikt worden om mijn vraag te beantwoorden.</span>
+            </label>
+          </div>
+          <div class="button-row" style="margin-top:18px">
+            <button class="btn primary" type="submit" data-i18n="form.submit">Verzend vraag</button>
+            <a class="btn" href="mailto:eway@skynet.be" data-i18n="form.mailDirect">Of mail rechtstreeks</a>
+          </div>
+          <p class="form-status" id="formStatus" aria-live="polite" data-i18n="form.status">Bedankt, uw vraag werd verzonden.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand"><img class="brand-logo" src="assets/dedecker-weyers-logo.png" alt="Kinesitherapie BVBA Dedecker-Weyers"></div>
+        <p data-i18n="footer.copy">Persoonlijke kinesitherapeutische zorg in Koningslo-Vilvoorde, met aandacht voor uw klachten, herstel en langetermijnwelzijn.</p>
+      </div>
+      <div>
+        <h3 data-i18n="footer.practice">Praktijk</h3>
+        <ul><li>Veldstraat 24</li><li>1800 Koningslo-Vilvoorde</li><li data-i18n="footer.country">Belgie</li></ul>
+      </div>
+      <div>
+        <h3 data-i18n="nav.contact">Contact</h3>
+        <ul><li><a href="tel:022677288">02 267 72 88</a></li><li><a href="mailto:eway@skynet.be">eway@skynet.be</a></li></ul>
+      </div>
+      <div>
+        <h3 data-i18n="footer.navigation">Navigatie</h3>
+        <ul><li><a href="#behandelingen" data-i18n="nav.treatments">Behandelingen</a></li><li><a href="#team" data-i18n="nav.team">Team</a></li><li><a href="#afspraak" data-i18n="nav.appointment">Afspraak</a></li><li><a href="#contact" data-i18n="nav.contact">Contact</a></li></ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 BVBA Dedecker-Weyers</span>
+      <span data-i18n="footer.privacy">Privacyvriendelijk prototype: geen medische gegevens verzamelen via formulier.</span>
+    </div>
+  </footer>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalBusiness",
+    "name": "Kinesitherapie Dedecker-Weyers",
+    "legalName": "BVBA Dedecker-Weyers",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Veldstraat 24",
+      "postalCode": "1800",
+      "addressLocality": "Koningslo-Vilvoorde",
+      "addressCountry": "BE"
+    },
+    "telephone": "+3222677288",
+    "email": "eway@skynet.be",
+    "openingHours": "Mo-Fr 08:00-21:00"
+  }
+  </script>
+  <script>
+    (function () {
+      const translations = {
+        nl: {
+          "nav.practice": "Praktijk",
+          "nav.treatments": "Behandelingen",
+          "nav.appointment": "Afspraak",
+          "nav.team": "Team",
+          "nav.contact": "Contact",
+          "marquee.text": "<span>Manuele therapie <span class=\"sep\">+</span> <em>Sportrevalidatie</em> <span class=\"sep\">+</span> Lymfedrainage <span class=\"sep\">+</span> Ademhalingskinesitherapie <span class=\"sep\">+</span> Neurologische revalidatie <span class=\"sep\">+</span> <em>Huisbezoeken</em> <span class=\"sep\">+</span> Cardiale revalidatie <span class=\"sep\">+</span></span>",
+          "hero.kicker": "Maak een afspraak",
+          "hero.title": "Beweging,<br><em>hersteld.</em>",
+          "hero.copy": "Behandelingen worden uitsluitend op afspraak uitgevoerd. Ook huisbezoeken gebeuren enkel op afspraak, telefonisch af te stemmen met de praktijk.",
+          "hero.cta": "Op afspraak",
+          "hero.experience": "Lokale ervaring",
+          "practice.kicker": "Over de praktijk",
+          "practice.title": "Ruim 35 jaar gespecialiseerde <em>kinesitherapie</em> in Koningslo-Vilvoorde.",
+          "practice.copy1": "Ons enthousiast team verzekert u een <strong>individueel aangepaste behandeling</strong> - elke therapeut heeft zijn eigen vakinteresse. We schaven onze vaardigheden voortdurend bij en breiden ze aan met bijzondere bekwaamheden.",
+          "practice.copy2": "Om de vooropgestelde doelen te bereiken beschikken we over een volledig vernieuwde praktijk met een <strong>goed uitgeruste oefenruimte</strong> en een ruime therapietuin.",
+          "practice.statExperience": "Jaar ervaring",
+          "practice.statTreatments": "Behandelvormen",
+          "practice.statTherapists": "Therapeuten",
+          "practice.badge": "SINDS 1989",
+          "practice.quote": "Optimale, individueel aangepaste zorg - in een vernieuwde praktijk met therapietuin.",
+          "cards.practiceKicker": "Praktijk",
+          "cards.practiceCopy": "Nieuwe afspraak? Bel ons of gebruik het online reservatiesysteem zodra beschikbaar.",
+          "cards.callPractice": "Bel de praktijk",
+          "cards.hoursKicker": "Openingsuren",
+          "cards.weekdays": "Ma-vr",
+          "cards.weekend": "Weekend",
+          "cards.emailLabel": "Email",
+          "cards.closed": "Gesloten",
+          "cards.notUrgent": "Niet urgent",
+          "cards.knowKicker": "Goed om te weten",
+          "cards.knowTitle": "Telefonisch voor dringende vragen",
+          "cards.knowCopy": "Voor dringende afspraken of wanneer u online geen passend moment vindt, neem telefonisch contact op. Vermeld geen gevoelige medische informatie per mail of formulier.",
+          "treatments.kicker": "Behandelingen",
+          "treatments.title": "Waarvoor kunt u <em>terecht?</em>",
+          "treatments.lead": "Een selectie van behandelingen uit de praktijk. De juiste aanpak wordt afgestemd op uw klachten, verwijzing en hersteldoelen.",
+          "treatment.manualTitle": "Manuele Therapie",
+          "treatment.manualCopy": "Onderzoek en behandeling van gewrichten, spieren en zenuwstructuren, met aandacht voor bewegingsvrijheid.",
+          "treatment.manualTag": "Nek en rug",
+          "treatment.sportTitle": "Sportrevalidatie",
+          "treatment.sportCopy": "Begeleiding na sportletsels of ingrepen, met oefentherapie en een geleidelijke terugkeer naar activiteit.",
+          "treatment.sportTag": "Training",
+          "treatment.tecarTitle": "Tecar Therapie INDIBA",
+          "treatment.tecarCopy": "Technologische ondersteuning binnen een behandelplan, toegepast wanneer dit medisch passend is.",
+          "treatment.tecarTag": "Technologie",
+          "treatment.lymphTitle": "Manuele Lymfedrainage",
+          "treatment.lymphCopy": "Zachte technieken gericht op vochtophoping of zwelling, meestal als onderdeel van een breder zorgtraject.",
+          "treatment.lymphTag": "Oedeem",
+          "treatment.neuroTitle": "Neurologische Revalidatie",
+          "treatment.neuroCopy": "Oefengerichte begeleiding bij neurologische aandoeningen, met focus op dagelijks functioneren.",
+          "treatment.neuroTag": "Revalidatie",
+          "treatment.breathingTitle": "Ademhalingskinesitherapie",
+          "treatment.breathingCopy": "Ondersteuning bij ademhalingsklachten en herstel, afgestemd op leeftijd en medische context.",
+          "treatment.breathingTag": "Ademhaling",
+          "treatment.perinatalTitle": "Perinatale Kinesitherapie",
+          "treatment.perinatalCopy": "Begeleiding rond zwangerschap en herstel nadien, met aandacht voor comfort en verantwoord bewegen.",
+          "treatment.perinatalTag": "Voor en na",
+          "treatment.geriatricTitle": "Geriatrische Kinesitherapie",
+          "treatment.geriatricCopy": "Mobiliteit, kracht, evenwicht en valpreventie voor oudere patienten, thuis of in de praktijk.",
+          "treatment.geriatricTag": "Mobiliteit",
+          "treatment.homeTitle": "Huisbezoek",
+          "treatment.homeCopy": "Voor patienten die zich moeilijk kunnen verplaatsen, waar medisch aangewezen en enkel na afspraak.",
+          "treatment.homeTag": "Telefonisch",
+          "booking.kicker": "Afspraak maken",
+          "booking.title": "Kies de juiste <em>route.</em>",
+          "booking.lead": "Behandeling in de praktijk en huisbezoeken verlopen enkel op afspraak. Telefonisch contact blijft de snelste keuze voor dringende vragen, huisbezoeken of wijzigingen.",
+          "booking.recommended": "Aanbevolen",
+          "booking.callTitle": "Bel de praktijk",
+          "booking.callCopy": "Beste keuze voor een eerste afspraak, dringende afspraak, huisbezoek of het verplaatsen van een afspraak.",
+          "booking.onlineKicker": "Online",
+          "booking.onlineTitle": "Reservatiesysteem",
+          "booking.onlineCopy": "Online boeken komt hier zodra de praktijk een reservatieprovider bevestigt.",
+          "booking.unavailable": "Nog niet beschikbaar",
+          "booking.todo": "TODO: koppel hier Progenda, Rosa, Doctena, Doctoranytime of de gekozen praktijktool.",
+          "booking.notUrgent": "Niet urgent",
+          "booking.emailTitle": "Email",
+          "booking.emailCopy": "Gebruik email voor praktische vragen. Voor snelle of dringende afspraken: bel de praktijk.",
+          "booking.checklistTitle": "Wat brengt u mee?",
+          "checklist.id": "Identiteitskaart",
+          "checklist.mutuality": "Klevertje van de mutualiteit, indien relevant",
+          "checklist.prescription": "Voorschrift van de arts, indien vereist",
+          "checklist.reports": "Relevante medische verslagen of beeldvorming",
+          "checklist.clothes": "Comfortabele kleding",
+          "visits.title": "Huisbezoeken",
+          "visits.copy": "Huisbezoeken zijn mogelijk wanneer verplaatsing moeilijk is en de situatie medisch passend is. Neem telefonisch contact op om dit te bespreken. De exacte regio en planning blijven configureerbaar.",
+          "team.title": "Zorg door een <em>ervaren team.</em>",
+          "team.lead": "Publieke contactgegevens en profielfoto's komen van de bestaande Engelstalige teampagina. Notities voor zorgverlener Defensie verschijnen alleen waar de bronpagina ze vermeldt.",
+          "team.role": "Kinesitherapeut",
+          "team.defenseBadge": "Zorgverlener Defensie",
+          "team.memberBadge": "Teamlid",
+          "team.note": "Voor dringende afspraken, huisbezoeken of het verplaatsen van een afspraak belt u best rechtstreeks naar de praktijk. Publieke mobiele nummers worden hier getoond omdat ze op de vermelde teampagina staan.",
+          "contact.kicker": "Contactformulier",
+          "contact.title": "Stel een <em>praktische vraag.</em>",
+          "contact.lead": "Dit formulier is bedoeld voor praktische contactvragen. Het bewaart niets lokaal en bevat een TODO voor de latere server- of formulierintegratie.",
+          "contact.address": "Adres",
+          "contact.formTitle": "Contacteer ons",
+          "contact.privacy": "Vermeld geen gevoelige medische informatie in dit formulier.",
+          "form.name": "Naam",
+          "form.email": "Email",
+          "form.phone": "Telefoon",
+          "form.preference": "Voorkeur contact",
+          "form.phoneOption": "Telefoon",
+          "form.message": "Korte boodschap",
+          "form.placeholder": "Bijvoorbeeld: ik wil graag teruggebeld worden voor een afspraak.",
+          "form.consent": "Ik ga akkoord dat mijn gegevens gebruikt worden om mijn vraag te beantwoorden.",
+          "form.submit": "Verzend vraag",
+          "form.mailDirect": "Of mail rechtstreeks",
+          "form.status": "Bedankt, uw vraag werd verzonden.",
+          "form.sending": "Uw vraag wordt verzonden...",
+          "form.error": "We konden uw vraag niet verzenden. Probeer later opnieuw of mail rechtstreeks.",
+          "footer.copy": "Persoonlijke kinesitherapeutische zorg in Koningslo-Vilvoorde, met aandacht voor uw klachten, herstel en langetermijnwelzijn.",
+          "footer.practice": "Praktijk",
+          "footer.country": "Belgie",
+          "footer.navigation": "Navigatie",
+          "footer.privacy": "Privacyvriendelijk prototype: geen medische gegevens verzamelen via formulier."
+        },
+        en: {
+          "nav.practice": "Practice",
+          "nav.treatments": "Treatments",
+          "nav.appointment": "Appointment",
+          "nav.team": "Team",
+          "nav.contact": "Contact",
+          "marquee.text": "<span>Manual therapy <span class=\"sep\">+</span> <em>Sports rehabilitation</em> <span class=\"sep\">+</span> Lymph drainage <span class=\"sep\">+</span> Respiratory physiotherapy <span class=\"sep\">+</span> Neurological rehabilitation <span class=\"sep\">+</span> <em>Home visits</em> <span class=\"sep\">+</span> Cardiac rehabilitation <span class=\"sep\">+</span></span>",
+          "hero.kicker": "Make an appointment",
+          "hero.title": "Movement,<br><em>restored.</em>",
+          "hero.copy": "Treatments are performed exclusively by appointment. Home visits are also by appointment only and arranged by telephone with the practice.",
+          "hero.cta": "By appointment",
+          "hero.experience": "Local experience",
+          "practice.kicker": "About the practice",
+          "practice.title": "Over 35 years of specialised <em>physiotherapy</em> in Koningslo-Vilvoorde.",
+          "practice.copy1": "Our enthusiastic team ensures an <strong>individually adapted treatment</strong> - every therapist has their own field of interest. We continuously refresh and broaden our skills.",
+          "practice.copy2": "To reach the agreed goals, we work in a fully renewed practice with a <strong>well-equipped exercise room</strong> and a spacious therapy garden.",
+          "practice.statExperience": "Years experience",
+          "practice.statTreatments": "Treatment types",
+          "practice.statTherapists": "Therapists",
+          "practice.badge": "SINCE 1989",
+          "practice.quote": "Optimal, individually adapted care - in a renewed practice with a therapy garden.",
+          "cards.practiceKicker": "Practice",
+          "cards.practiceCopy": "New appointment? Call us or use the online booking system as soon as it is available.",
+          "cards.callPractice": "Call the practice",
+          "cards.hoursKicker": "Opening hours",
+          "cards.weekdays": "Mon-Fri",
+          "cards.weekend": "Weekend",
+          "cards.emailLabel": "Email",
+          "cards.closed": "Closed",
+          "cards.notUrgent": "Not urgent",
+          "cards.knowKicker": "Good to know",
+          "cards.knowTitle": "Call for urgent questions",
+          "cards.knowCopy": "For urgent appointments or when you cannot find a suitable online time, please call the practice. Do not send sensitive medical information by email or form.",
+          "treatments.kicker": "Treatments",
+          "treatments.title": "How can we <em>help?</em>",
+          "treatments.lead": "A selection of treatments from the practice. The right approach is tailored to your symptoms, referral and recovery goals.",
+          "treatment.manualTitle": "Manual Therapy",
+          "treatment.manualCopy": "Assessment and treatment of joints, muscles and nerve structures, with attention to freedom of movement.",
+          "treatment.manualTag": "Neck and back",
+          "treatment.sportTitle": "Sports Rehabilitation",
+          "treatment.sportCopy": "Guidance after sports injuries or surgery, with exercise therapy and a gradual return to activity.",
+          "treatment.sportTag": "Training",
+          "treatment.tecarTitle": "Tecar Therapy INDIBA",
+          "treatment.tecarCopy": "Technological support within a treatment plan, used when medically appropriate.",
+          "treatment.tecarTag": "Technology",
+          "treatment.lymphTitle": "Manual Lymph Drainage",
+          "treatment.lymphCopy": "Gentle techniques for fluid build-up or swelling, usually as part of a broader care plan.",
+          "treatment.lymphTag": "Edema",
+          "treatment.neuroTitle": "Neurological Rehabilitation",
+          "treatment.neuroCopy": "Exercise-focused guidance for neurological conditions, focused on daily functioning.",
+          "treatment.neuroTag": "Rehabilitation",
+          "treatment.breathingTitle": "Respiratory Physiotherapy",
+          "treatment.breathingCopy": "Support for breathing complaints and recovery, adapted to age and medical context.",
+          "treatment.breathingTag": "Breathing",
+          "treatment.perinatalTitle": "Perinatal Physiotherapy",
+          "treatment.perinatalCopy": "Guidance around pregnancy and recovery afterwards, with attention to comfort and safe movement.",
+          "treatment.perinatalTag": "Before and after",
+          "treatment.geriatricTitle": "Geriatric Physiotherapy",
+          "treatment.geriatricCopy": "Mobility, strength, balance and fall prevention for older patients, at home or in the practice.",
+          "treatment.geriatricTag": "Mobility",
+          "treatment.homeTitle": "Home Visit",
+          "treatment.homeCopy": "For patients who have difficulty travelling, where medically appropriate and only by appointment.",
+          "treatment.homeTag": "By phone",
+          "booking.kicker": "Make an appointment",
+          "booking.title": "Choose the right <em>route.</em>",
+          "booking.lead": "Treatment at the practice and home visits are by appointment only. Calling remains the fastest option for urgent questions, home visits or changes.",
+          "booking.recommended": "Recommended",
+          "booking.callTitle": "Call the practice",
+          "booking.callCopy": "Best for a first appointment, urgent appointment, home visit or changing an appointment.",
+          "booking.onlineKicker": "Online",
+          "booking.onlineTitle": "Booking system",
+          "booking.onlineCopy": "Online booking will appear here once the practice confirms a booking provider.",
+          "booking.unavailable": "Not available yet",
+          "booking.todo": "TODO: connect Progenda, Rosa, Doctena, Doctoranytime or the chosen practice tool here.",
+          "booking.notUrgent": "Not urgent",
+          "booking.emailTitle": "Email",
+          "booking.emailCopy": "Use email for practical questions. For quick or urgent appointments: call the practice.",
+          "booking.checklistTitle": "What should you bring?",
+          "checklist.id": "Identity card",
+          "checklist.mutuality": "Health insurance sticker, if relevant",
+          "checklist.prescription": "Doctor's prescription, if required",
+          "checklist.reports": "Relevant medical reports or imaging",
+          "checklist.clothes": "Comfortable clothing",
+          "visits.title": "Home visits",
+          "visits.copy": "Home visits are possible when travel is difficult and the situation is medically appropriate. Please call to discuss this.",
+          "team.title": "Care from an <em>experienced team.</em>",
+          "team.lead": "Public contact details and profile photos are taken from the existing English team page. Defense healthcare provider notes are shown only where the source page lists them.",
+          "team.role": "Kinesitherapist",
+          "team.defenseBadge": "Defense healthcare provider",
+          "team.memberBadge": "Team member",
+          "team.note": "For urgent appointments, home visits, or changing an appointment, please call the practice directly. Public mobile numbers are shown here because they are listed on the referenced team page.",
+          "contact.kicker": "Contact form",
+          "contact.title": "Ask a <em>practical question.</em>",
+          "contact.lead": "This form is intended for practical contact questions. It stores nothing locally and includes a TODO for later integration.",
+          "contact.address": "Address",
+          "contact.formTitle": "Contact us",
+          "contact.privacy": "Do not include sensitive medical information in this form.",
+          "form.name": "Name",
+          "form.email": "Email",
+          "form.phone": "Phone",
+          "form.preference": "Preferred contact",
+          "form.phoneOption": "Phone",
+          "form.message": "Short message",
+          "form.placeholder": "For example: I would like to be called back for an appointment.",
+          "form.consent": "I agree that my details may be used to answer my question.",
+          "form.submit": "Send question",
+          "form.mailDirect": "Or email directly",
+          "form.status": "Thank you, your message has been sent.",
+          "form.sending": "Sending your message...",
+          "form.error": "We could not send your message. Please try again later or email us directly.",
+          "footer.copy": "Personal physiotherapy care in Koningslo-Vilvoorde, focused on your symptoms, recovery and long-term wellbeing.",
+          "footer.practice": "Practice",
+          "footer.country": "Belgium",
+          "footer.navigation": "Navigation",
+          "footer.privacy": "Privacy-friendly prototype: no medical data is collected through the form."
+        },
+        fr: {
+          "nav.practice": "Cabinet",
+          "nav.treatments": "Traitements",
+          "nav.appointment": "Rendez-vous",
+          "nav.team": "Equipe",
+          "nav.contact": "Contact",
+          "marquee.text": "<span>Therapie manuelle <span class=\"sep\">+</span> <em>Reeducation sportive</em> <span class=\"sep\">+</span> Drainage lymphatique <span class=\"sep\">+</span> Kinesitherapie respiratoire <span class=\"sep\">+</span> Reeducation neurologique <span class=\"sep\">+</span> <em>Visites a domicile</em> <span class=\"sep\">+</span> Reeducation cardiaque <span class=\"sep\">+</span></span>",
+          "hero.kicker": "Prendre rendez-vous",
+          "hero.title": "Mouvement,<br><em>retrouvé.</em>",
+          "hero.copy": "Les traitements se font uniquement sur rendez-vous. Les visites à domicile se font également uniquement sur rendez-vous, à convenir par téléphone avec le cabinet.",
+          "hero.cta": "Sur rendez-vous",
+          "hero.experience": "Expérience locale",
+          "practice.kicker": "À propos du cabinet",
+          "practice.title": "Plus de 35 ans de <em>kinésithérapie</em> spécialisée à Koningslo-Vilvoorde.",
+          "practice.copy1": "Notre équipe enthousiaste vous assure un <strong>traitement adapté individuellement</strong> - chaque thérapeute possède son propre domaine d'intérêt.",
+          "practice.copy2": "Pour atteindre les objectifs fixés, nous disposons d'un cabinet entièrement rénové avec une <strong>salle d'exercices bien équipée</strong> et un vaste jardin thérapeutique.",
+          "practice.statExperience": "Années d'expérience",
+          "practice.statTreatments": "Types de soins",
+          "practice.statTherapists": "Thérapeutes",
+          "practice.badge": "DEPUIS 1989",
+          "practice.quote": "Des soins optimaux et personnalisés - dans un cabinet rénové avec jardin thérapeutique.",
+          "cards.practiceKicker": "Cabinet",
+          "cards.practiceCopy": "Nouveau rendez-vous ? Appelez-nous ou utilisez le système de réservation en ligne dès qu'il sera disponible.",
+          "cards.callPractice": "Appeler le cabinet",
+          "cards.hoursKicker": "Heures d'ouverture",
+          "cards.weekdays": "Lun-ven",
+          "cards.weekend": "Week-end",
+          "cards.emailLabel": "E-mail",
+          "cards.closed": "Fermé",
+          "cards.notUrgent": "Non urgent",
+          "cards.knowKicker": "Bon à savoir",
+          "cards.knowTitle": "Téléphonez pour les questions urgentes",
+          "cards.knowCopy": "Pour un rendez-vous urgent ou si vous ne trouvez pas de créneau en ligne, contactez le cabinet par téléphone.",
+          "treatments.kicker": "Traitements",
+          "treatments.title": "Pour quoi pouvez-vous <em>venir ?</em>",
+          "treatments.lead": "Une sélection de traitements du cabinet. L'approche est adaptée à vos plaintes, à votre prescription et à vos objectifs de rétablissement.",
+          "treatment.manualTitle": "Therapie manuelle",
+          "treatment.manualCopy": "Evaluation et traitement des articulations, muscles et structures nerveuses, avec attention a la liberte de mouvement.",
+          "treatment.manualTag": "Nuque et dos",
+          "treatment.sportTitle": "Reeducation sportive",
+          "treatment.sportCopy": "Accompagnement apres blessure sportive ou intervention, avec exercices et reprise progressive de l'activite.",
+          "treatment.sportTag": "Entrainement",
+          "treatment.tecarTitle": "Therapie Tecar INDIBA",
+          "treatment.tecarCopy": "Soutien technologique dans un plan de traitement, utilise lorsque cela est medicalement approprie.",
+          "treatment.tecarTag": "Technologie",
+          "treatment.lymphTitle": "Drainage lymphatique manuel",
+          "treatment.lymphCopy": "Techniques douces pour les accumulations de liquide ou les gonflements, souvent dans un parcours de soins plus large.",
+          "treatment.lymphTag": "Oedeme",
+          "treatment.neuroTitle": "Reeducation neurologique",
+          "treatment.neuroCopy": "Accompagnement par exercices pour les affections neurologiques, centre sur le fonctionnement quotidien.",
+          "treatment.neuroTag": "Reeducation",
+          "treatment.breathingTitle": "Kinesitherapie respiratoire",
+          "treatment.breathingCopy": "Soutien pour les troubles respiratoires et la recuperation, adapte a l'age et au contexte medical.",
+          "treatment.breathingTag": "Respiration",
+          "treatment.perinatalTitle": "Kinesitherapie perinatale",
+          "treatment.perinatalCopy": "Accompagnement autour de la grossesse et de la recuperation apres, avec attention au confort et au mouvement sur.",
+          "treatment.perinatalTag": "Avant et apres",
+          "treatment.geriatricTitle": "Kinesitherapie geriatrique",
+          "treatment.geriatricCopy": "Mobilite, force, equilibre et prevention des chutes pour les patients ages, a domicile ou au cabinet.",
+          "treatment.geriatricTag": "Mobilite",
+          "treatment.homeTitle": "Visite a domicile",
+          "treatment.homeCopy": "Pour les patients qui se deplacent difficilement, si medicalement indique et uniquement sur rendez-vous.",
+          "treatment.homeTag": "Telephone",
+          "booking.kicker": "Prendre rendez-vous",
+          "booking.title": "Choisissez la bonne <em>voie.</em>",
+          "booking.lead": "Les soins au cabinet et les visites à domicile se font uniquement sur rendez-vous. Le téléphone reste le plus rapide pour les questions urgentes.",
+          "booking.recommended": "Recommandé",
+          "booking.callTitle": "Appeler le cabinet",
+          "booking.callCopy": "Le meilleur choix pour un premier rendez-vous, une urgence, une visite à domicile ou un changement.",
+          "booking.onlineKicker": "En ligne",
+          "booking.onlineTitle": "Système de réservation",
+          "booking.onlineCopy": "La réservation en ligne apparaîtra ici dès qu'un prestataire sera confirmé.",
+          "booking.unavailable": "Pas encore disponible",
+          "booking.todo": "TODO : connecter ici Progenda, Rosa, Doctena, Doctoranytime ou l'outil choisi par le cabinet.",
+          "booking.notUrgent": "Non urgent",
+          "booking.emailTitle": "E-mail",
+          "booking.emailCopy": "Utilisez l'e-mail pour les questions pratiques. Pour les rendez-vous rapides ou urgents : appelez le cabinet.",
+          "booking.checklistTitle": "Que faut-il apporter ?",
+          "checklist.id": "Carte d'identite",
+          "checklist.mutuality": "Vignette de mutuelle, si necessaire",
+          "checklist.prescription": "Prescription medicale, si requise",
+          "checklist.reports": "Rapports medicaux ou imagerie pertinents",
+          "checklist.clothes": "Vetements confortables",
+          "visits.title": "Visites à domicile",
+          "visits.copy": "Les visites à domicile sont possibles lorsque le déplacement est difficile et que la situation est médicalement appropriée.",
+          "team.title": "Des soins par une <em>équipe expérimentée.</em>",
+          "team.lead": "Les coordonnees publiques et les photos de profil proviennent de la page d'equipe anglaise existante. Les mentions de prestataire de soins Defense ne sont affichees que lorsque la page source les indique.",
+          "team.role": "Kinesitherapeute",
+          "team.defenseBadge": "Prestataire de soins Defense",
+          "team.memberBadge": "Membre de l'equipe",
+          "team.note": "Pour un rendez-vous urgent, une visite a domicile ou un changement de rendez-vous, appelez directement le cabinet. Les numeros mobiles publics sont affiches ici car ils figurent sur la page d'equipe referencee.",
+          "contact.kicker": "Formulaire de contact",
+          "contact.title": "Posez une <em>question pratique.</em>",
+          "contact.lead": "Ce formulaire est destiné aux questions pratiques. Il ne stocke rien localement.",
+          "contact.address": "Adresse",
+          "contact.formTitle": "Contactez-nous",
+          "contact.privacy": "Ne mentionnez pas d'informations médicales sensibles dans ce formulaire.",
+          "form.name": "Nom",
+          "form.email": "E-mail",
+          "form.phone": "Téléphone",
+          "form.preference": "Contact préféré",
+          "form.phoneOption": "Téléphone",
+          "form.message": "Court message",
+          "form.placeholder": "Par exemple : je souhaite être rappelé pour un rendez-vous.",
+          "form.consent": "J'accepte que mes données soient utilisées pour répondre à ma question.",
+          "form.submit": "Envoyer",
+          "form.mailDirect": "Ou envoyer un e-mail",
+          "form.status": "Merci, votre message a ete envoye.",
+          "form.sending": "Envoi de votre message...",
+          "form.error": "Nous n'avons pas pu envoyer votre message. Reessayez plus tard ou envoyez un e-mail directement.",
+          "footer.copy": "Soins de kinésithérapie personnalisés à Koningslo-Vilvoorde, axés sur vos plaintes, votre rétablissement et votre bien-être.",
+          "footer.practice": "Cabinet",
+          "footer.country": "Belgique",
+          "footer.navigation": "Navigation",
+          "footer.privacy": "Prototype respectueux de la vie privée : aucune donnée médicale n'est collectée via le formulaire."
+        },
+        pl: {
+          "nav.practice": "Gabinet",
+          "nav.treatments": "Terapie",
+          "nav.appointment": "Wizyta",
+          "nav.team": "Zespol",
+          "nav.contact": "Kontakt",
+          "marquee.text": "<span>Terapia manualna <span class=\"sep\">+</span> <em>Rehabilitacja sportowa</em> <span class=\"sep\">+</span> Drenaz limfatyczny <span class=\"sep\">+</span> Fizjoterapia oddechowa <span class=\"sep\">+</span> Rehabilitacja neurologiczna <span class=\"sep\">+</span> <em>Wizyty domowe</em> <span class=\"sep\">+</span> Rehabilitacja kardiologiczna <span class=\"sep\">+</span></span>",
+          "hero.kicker": "Umów wizytę",
+          "hero.title": "Ruch,<br><em>odzyskany.</em>",
+          "hero.copy": "Zabiegi odbywają się wyłącznie po wcześniejszym umówieniu. Wizyty domowe również są umawiane wyłącznie telefonicznie z gabinetem.",
+          "hero.cta": "Po umówieniu",
+          "hero.experience": "Lokalne doświadczenie",
+          "practice.kicker": "O gabinecie",
+          "practice.title": "Ponad 35 lat specjalistycznej <em>fizjoterapii</em> w Koningslo-Vilvoorde.",
+          "practice.copy1": "Nasz zaangażowany zespół zapewnia <strong>indywidualnie dopasowane leczenie</strong> - każdy terapeuta ma własne obszary specjalizacji.",
+          "practice.copy2": "Aby realizować ustalone cele, pracujemy w odnowionym gabinecie z <strong>dobrze wyposażoną salą ćwiczeń</strong> i przestronnym ogrodem terapeutycznym.",
+          "practice.statExperience": "Lat doświadczenia",
+          "practice.statTreatments": "Rodzaje terapii",
+          "practice.statTherapists": "Terapeuci",
+          "practice.badge": "OD 1989",
+          "practice.quote": "Optymalna, indywidualnie dopasowana opieka - w odnowionym gabinecie z ogrodem terapeutycznym.",
+          "cards.practiceKicker": "Gabinet",
+          "cards.practiceCopy": "Nowa wizyta? Zadzwoń do nas lub skorzystaj z rezerwacji online, gdy będzie dostępna.",
+          "cards.callPractice": "Zadzwoń do gabinetu",
+          "cards.hoursKicker": "Godziny otwarcia",
+          "cards.weekdays": "Pon-pt",
+          "cards.weekend": "Weekend",
+          "cards.emailLabel": "E-mail",
+          "cards.closed": "Zamknięte",
+          "cards.notUrgent": "Niepilne",
+          "cards.knowKicker": "Warto wiedzieć",
+          "cards.knowTitle": "W pilnych sprawach zadzwoń",
+          "cards.knowCopy": "W przypadku pilnych wizyt lub braku odpowiedniego terminu online prosimy o kontakt telefoniczny.",
+          "treatments.kicker": "Terapie",
+          "treatments.title": "W czym możemy <em>pomóc?</em>",
+          "treatments.lead": "Wybrane terapie dostępne w gabinecie. Podejście dopasowujemy do objawów, skierowania i celów powrotu do zdrowia.",
+          "treatment.manualTitle": "Terapia manualna",
+          "treatment.manualCopy": "Ocena i leczenie stawow, miesni oraz struktur nerwowych, z uwaga na swobode ruchu.",
+          "treatment.manualTag": "Szyja i plecy",
+          "treatment.sportTitle": "Rehabilitacja sportowa",
+          "treatment.sportCopy": "Prowadzenie po urazach sportowych lub zabiegach, z cwiczeniami i stopniowym powrotem do aktywnosci.",
+          "treatment.sportTag": "Trening",
+          "treatment.tecarTitle": "Terapia Tecar INDIBA",
+          "treatment.tecarCopy": "Wsparcie technologiczne w planie terapii, stosowane wtedy, gdy jest medycznie uzasadnione.",
+          "treatment.tecarTag": "Technologia",
+          "treatment.lymphTitle": "Manualny drenaz limfatyczny",
+          "treatment.lymphCopy": "Delikatne techniki przy obrzekach lub gromadzeniu plynow, zwykle jako czesc szerszego planu opieki.",
+          "treatment.lymphTag": "Obrzek",
+          "treatment.neuroTitle": "Rehabilitacja neurologiczna",
+          "treatment.neuroCopy": "Cwiczeniowe wsparcie przy schorzeniach neurologicznych, z naciskiem na codzienne funkcjonowanie.",
+          "treatment.neuroTag": "Rehabilitacja",
+          "treatment.breathingTitle": "Fizjoterapia oddechowa",
+          "treatment.breathingCopy": "Wsparcie przy problemach oddechowych i powrocie do zdrowia, dopasowane do wieku i kontekstu medycznego.",
+          "treatment.breathingTag": "Oddech",
+          "treatment.perinatalTitle": "Fizjoterapia okoloporodowa",
+          "treatment.perinatalCopy": "Wsparcie w okresie ciazy i po porodzie, z naciskiem na komfort i bezpieczny ruch.",
+          "treatment.perinatalTag": "Przed i po",
+          "treatment.geriatricTitle": "Fizjoterapia geriatryczna",
+          "treatment.geriatricCopy": "Mobilnosc, sila, rownowaga i profilaktyka upadkow u starszych pacjentow, w domu lub w gabinecie.",
+          "treatment.geriatricTag": "Mobilnosc",
+          "treatment.homeTitle": "Wizyta domowa",
+          "treatment.homeCopy": "Dla pacjentow, ktorzy maja trudnosc z dojazdem, gdy jest to medycznie uzasadnione i wylacznie po umowieniu.",
+          "treatment.homeTag": "Telefonicznie",
+          "booking.kicker": "Umów wizytę",
+          "booking.title": "Wybierz właściwą <em>drogę.</em>",
+          "booking.lead": "Zabiegi w gabinecie i wizyty domowe odbywają się wyłącznie po umówieniu. Telefon jest najszybszy w pilnych sprawach.",
+          "booking.recommended": "Polecane",
+          "booking.callTitle": "Zadzwoń do gabinetu",
+          "booking.callCopy": "Najlepszy wybór przy pierwszej wizycie, pilnym terminie, wizycie domowej lub zmianie terminu.",
+          "booking.onlineKicker": "Online",
+          "booking.onlineTitle": "System rezerwacji",
+          "booking.onlineCopy": "Rezerwacja online pojawi się tutaj po potwierdzeniu dostawcy przez gabinet.",
+          "booking.unavailable": "Jeszcze niedostępne",
+          "booking.todo": "TODO: podlacz tutaj Progenda, Rosa, Doctena, Doctoranytime lub wybrane narzedzie gabinetu.",
+          "booking.notUrgent": "Niepilne",
+          "booking.emailTitle": "E-mail",
+          "booking.emailCopy": "E-mail służy do pytań praktycznych. W sprawach szybkich lub pilnych: zadzwoń.",
+          "booking.checklistTitle": "Co zabrać?",
+          "checklist.id": "Dowod osobisty",
+          "checklist.mutuality": "Naklejka ubezpieczenia zdrowotnego, jesli dotyczy",
+          "checklist.prescription": "Skierowanie od lekarza, jesli wymagane",
+          "checklist.reports": "Istotne wyniki badan lub obrazowania",
+          "checklist.clothes": "Wygodny stroj",
+          "visits.title": "Wizyty domowe",
+          "visits.copy": "Wizyty domowe są możliwe, gdy dojazd jest trudny i sytuacja jest medycznie uzasadniona. Prosimy o kontakt telefoniczny.",
+          "team.title": "Opieka <em>doświadczonego zespołu.</em>",
+          "team.lead": "Publiczne dane kontaktowe i zdjecia profilowe pochodza z istniejacej angielskiej strony zespolu. Informacje o swiadczeniodawcy dla obrony pokazujemy tylko tam, gdzie podaje je strona zrodlowa.",
+          "team.role": "Fizjoterapeuta",
+          "team.defenseBadge": "Swiadczeniodawca obrony",
+          "team.memberBadge": "Czlonek zespolu",
+          "team.note": "W sprawie pilnych wizyt, wizyt domowych lub zmiany terminu prosimy dzwonic bezposrednio do gabinetu. Publiczne numery komorkowe sa pokazane tutaj, poniewaz widnieja na wskazanej stronie zespolu.",
+          "contact.kicker": "Formularz kontaktowy",
+          "contact.title": "Zadaj <em>praktyczne pytanie.</em>",
+          "contact.lead": "Formularz służy do praktycznych pytań kontaktowych. Nie zapisuje nic lokalnie.",
+          "contact.address": "Adres",
+          "contact.formTitle": "Skontaktuj się z nami",
+          "contact.privacy": "Nie podawaj w formularzu wrażliwych informacji medycznych.",
+          "form.name": "Imię i nazwisko",
+          "form.email": "E-mail",
+          "form.phone": "Telefon",
+          "form.preference": "Preferowany kontakt",
+          "form.phoneOption": "Telefon",
+          "form.message": "Krótka wiadomość",
+          "form.placeholder": "Na przykład: proszę o telefon w sprawie wizyty.",
+          "form.consent": "Zgadzam się na wykorzystanie moich danych w celu odpowiedzi na pytanie.",
+          "form.submit": "Wyślij pytanie",
+          "form.mailDirect": "Lub napisz e-mail",
+          "form.status": "Dziekujemy, wiadomosc zostala wyslana.",
+          "form.sending": "Wysylanie wiadomosci...",
+          "form.error": "Nie udalo sie wyslac wiadomosci. Sprobuj pozniej albo napisz bezposrednio e-mail.",
+          "footer.copy": "Indywidualna opieka fizjoterapeutyczna w Koningslo-Vilvoorde, skupiona na dolegliwościach, powrocie do zdrowia i dobrostanie.",
+          "footer.practice": "Gabinet",
+          "footer.country": "Belgia",
+          "footer.navigation": "Nawigacja",
+          "footer.privacy": "Prototyp przyjazny prywatności: formularz nie zbiera danych medycznych."
+        }
+      };
+
+      const buttons = Array.from(document.querySelectorAll(".lang-option"));
+      const validLanguages = Object.keys(translations);
+      const syncMarquee = () => {
+        const marquee = document.getElementById("marquee");
+        if (marquee && marquee.firstElementChild) {
+          marquee.appendChild(marquee.firstElementChild.cloneNode(true));
+        }
+      };
+      const applyLanguage = (lang) => {
+        const dictionary = translations[lang] || translations.nl;
+        document.documentElement.lang = lang;
+        document.querySelectorAll("[data-i18n]").forEach((node) => {
+          const value = dictionary[node.dataset.i18n];
+          if (value) node.textContent = value;
+        });
+        document.querySelectorAll("[data-i18n-html]").forEach((node) => {
+          const value = dictionary[node.dataset.i18nHtml];
+          if (value) node.innerHTML = value;
+        });
+        syncMarquee();
+        document.querySelectorAll("[data-i18n-placeholder]").forEach((node) => {
+          const value = dictionary[node.dataset.i18nPlaceholder];
+          if (value) node.setAttribute("placeholder", value);
+        });
+        buttons.forEach((button) => {
+          const isActive = button.dataset.lang === lang;
+          button.classList.toggle("active", isActive);
+          button.setAttribute("aria-pressed", String(isActive));
+        });
+        window.siteTranslations = translations;
+        window.currentLanguage = lang;
+        localStorage.setItem("preferredLanguage", lang);
+      };
+
+      buttons.forEach((button) => {
+        button.addEventListener("click", () => applyLanguage(button.dataset.lang));
+      });
+
+      const urlLanguage = new URLSearchParams(window.location.search).get("lang");
+      const savedLanguage = localStorage.getItem("preferredLanguage");
+      const initialLanguage = validLanguages.includes(urlLanguage)
+        ? urlLanguage
+        : validLanguages.includes(savedLanguage)
+          ? savedLanguage
+          : "nl";
+      applyLanguage(initialLanguage);
+    })();
+
+    (function () {
+      const nav = document.getElementById("nav");
+      const onScroll = () => nav.classList.toggle("scrolled", window.scrollY > 58);
+      onScroll();
+      window.addEventListener("scroll", onScroll, { passive: true });
+    })();
+
+    (function () {
+      const form = document.getElementById("contactForm");
+      const status = document.getElementById("formStatus");
+      const submitButton = form.querySelector('button[type="submit"]');
+      const translate = (key) => {
+        const language = window.currentLanguage || document.documentElement.lang || "nl";
+        return window.siteTranslations?.[language]?.[key] || window.siteTranslations?.nl?.[key] || "";
+      };
+
+      form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        const payload = Object.fromEntries(new FormData(form));
+        payload.consent = Boolean(payload.consent);
+
+        form.dataset.state = "submitting";
+        status.classList.add("visible");
+        status.textContent = translate("form.sending");
+        submitButton.disabled = true;
+
+        try {
+          const response = await fetch("/api/contact", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload)
+          });
+          if (!response.ok) throw new Error("Contact request failed");
+
+          form.dataset.state = "success";
+          status.textContent = translate("form.status");
+          form.reset();
+        } catch {
+          form.dataset.state = "error";
+          status.textContent = translate("form.error");
+        } finally {
+          submitButton.disabled = false;
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
